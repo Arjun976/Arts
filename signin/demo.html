@@ -1,94 +1,518 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signin - Aurora Effect</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="relative flex items-center justify-center min-h-screen bg-gray-900">
-
-
-    <iframe src="https://lottie.host/embed/81b0694c-4546-4e7b-953d-bfe2e6856aab/WeNVzOJUqQ.lottie"></iframe>
-
-  <!-- Contact Toggle Button -->
-  <button onclick="toggleContact()" class="absolute top-6 right-6 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-500 transition">
-    Contact Us
-  </button>
-
-  <!-- Signin Card -->
-  <div class="bg-gray-800 p-8 rounded-2xl shadow-lg w-full max-w-md z-10">
-    <h1 class="relative text-5xl font-bold text-center mb-8 text-white">
-      <span class="absolute inset-0 blur-3xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-70 animate-pulse"></span>
-      <span class="relative">Signin</span>
-    </h1>
-
-    <form action="#" method="POST" class="space-y-6">
-      <div>
-        <label for="email" class="block text-gray-300 mb-2">Email</label>
-        <input id="email" name="email" type="email" required
-          class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500">
-      </div>
-
-      <div>
-        <label for="password" class="block text-gray-300 mb-2">Password</label>
-        <input id="password" name="password" type="password" required
-          class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500">
-      </div>
-
-      <div class="flex justify-between items-center text-sm">
-        <label class="flex items-center text-gray-300">
-          <input type="checkbox" class="mr-2 accent-purple-500"> Remember me
-        </label>
-        <a href="#" class="text-purple-400 hover:text-purple-300">Forgot password?</a>
-      </div>
-
-      <button type="submit"
-        class="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:opacity-90 transition">
-        Sign In
-      </button>
-    </form>
-
-    <p class="mt-6 text-center text-gray-400 text-sm">
-      Don't have an account? 
-      <a href="#" class="text-purple-400 hover:text-purple-300">Sign Up</a>
-    </p>
-  </div>
-
-  <!-- Off-Canvas Contact Section -->
-  <div id="contactPanel" class="fixed top-0 right-0 h-full w-80 bg-gray-800 text-white transform translate-x-full transition-transform duration-300 shadow-xl z-20">
-    <div class="p-6 flex flex-col h-full">
-      <div class="flex justify-between items-center mb-4">
-        <h2 class="text-xl font-bold">Contact Us</h2>
-        <button onclick="toggleContact()" class="text-gray-400 hover:text-white">&times;</button>
-      </div>
-      <form class="space-y-4 flex-grow">
-        <div>
-          <label for="name" class="block text-sm mb-1">Name</label>
-          <input id="name" type="text" class="w-full px-3 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
-        </div>
-        <div>
-          <label for="emailContact" class="block text-sm mb-1">Email</label>
-          <input id="emailContact" type="email" class="w-full px-3 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
-        </div>
-        <div>
-          <label for="message" class="block text-sm mb-1">Message</label>
-          <textarea id="message" rows="4" class="w-full px-3 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white py-2 rounded transition">
-          Send Message
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- JavaScript to Toggle Panel -->
-  <script>
-    function toggleContact() {
-      const panel = document.getElementById('contactPanel');
-      panel.classList.toggle('translate-x-full');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafty Creations - Handmade Crafts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom style for glassy effect */
+        .glassy-nav {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+        /* Video carousel styles */
+        .video-carousel {
+            position: relative;
+            width: 100%;
+            height: 60vh; /* Full viewport height */
+            overflow: hidden;
+        }
+        .video-carousel video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .video-carousel video.active {
+            opacity: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5); /* Darker overlay for better text readability */
+        }
+    </style>
+    <style type="text/tailwindcss">
+    @layer utilities {
+      @keyframes aurora {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .animate-aurora {
+        animation: aurora 8s ease infinite;
+      }
     }
-  </script>
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Hero Section with Video Carousel -->
+    <section class="video-carousel">
+        <video src="https://videos.pexels.com/video-files/3842770/3842770-uhd_2732_1440_25fps.mp4" autoplay muted loop></video>
+        <video src="https://videos.pexels.com/video-files/3826741/3826741-uhd_2732_1440_25fps.mp4" autoplay muted loop></video>
+        <video src="https://videos.pexels.com/video-files/5633999/5633999-uhd_2560_1440_24fps.mp4" autoplay muted loop></video>
+        <div class="hero-content">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-5xl font-bold 
+                    bg-gradient-to-r from-pink-300 via-cyan-200 to-yellow-200 
+                    bg-[length:200%_200%] bg-clip-text text-transparent animate-aurora">
+                    Crafty Creations
+                </h1>
+                <h2 class="text-3xl font-bold 
+                    bg-gradient-to-r from-pink-300 via-cyan-200 to-yellow-200 
+                    bg-[length:200%_200%] bg-clip-text text-transparent animate-aurora">
+                    Handcrafted with Love
+                </h2>
+                <br>
+                <p class="text-lg text-white mb-8">Discover unique, handmade crafts made with passion and care.</p>
+                <a href="#products" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700">Shop Now</a>
+            </div>
+        </div>
+    </section>
 
+    <!-- Sticky Navbar -->
+    <header class="sticky top-0 glassy-nav shadow z-10">
+        <nav class="container mx-auto px-4 py-4 flex justify-center items-center">
+            <ul class="flex space-x-6">
+                <li><a href="#" class="text-black hover:text-purple-300">Home</a></li>
+                <li><a href="#products" class="text-black hover:text-purple-300">Shop</a></li>
+                <li><a href="#" class="text-black hover:text-purple-300">About</a></li>
+                <li>
+                    <button onclick="toggleContact()" class="text-black hover:text-purple-300">Contact Us</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Featured Crafts Section -->
+    <section id="featured" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Featured Crafts</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Featured Craft 1 -->
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Featured Ceramic Vase" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Premium Ceramic Vase</h3>
+                        <p class="text-gray-600 mt-2">$39.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">View Details</a>
+                    </div>
+                </div>
+                <!-- Featured Craft 2 -->
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Featured Knitted Blanket" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Luxury Knitted Blanket</h3>
+                        <p class="text-gray-600 mt-2">$69.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">View Details</a>
+                    </div>
+                </div>
+                <!-- Featured Craft 3 -->
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Featured Wooden Tray" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Rustic Wooden Tray</h3>
+                        <p class="text-gray-600 mt-2">$44.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">View Details</a>
+                    </div>
+                </div>
+                <!-- Featured Craft 4 -->
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Featured Beaded Necklace" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Elegant Beaded Necklace</h3>
+                        <p class="text-gray-600 mt-2">$34.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16">
+        <div class="container mx-auto px-4">
+            <!-- Ceramics Section -->
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Ceramics</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Ceramic Product Cards -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Vase" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Handmade Ceramic Vase</h3>
+                        <p class="text-gray-600 mt-2">$29.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Mug" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Handpainted Ceramic Mug</h3>
+                        <p class="text-gray-600 mt-2">$15.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Bowl" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Ceramic Serving Bowl</h3>
+                        <p class="text-gray-600 mt-2">$24.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Plate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Decorative Ceramic Plate</h3>
+                        <p class="text-gray-600 mt-2">$19.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Teapot" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Ceramic Teapot</h3>
+                        <p class="text-gray-600 mt-2">$34.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Planter" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Small Ceramic Planter</h3>
+                        <p class="text-gray-600 mt-2">$12.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Figurine" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Ceramic Animal Figurine</h3>
+                        <p class="text-gray-600 mt-2">$9.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Candle Holder" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Ceramic Candle Holder</h3>
+                        <p class="text-gray-600 mt-2">$17.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Knitted Items Section -->
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Knitted Items</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Knitted Product Cards -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Scarf" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Cozy Knitted Scarf</h3>
+                        <p class="text-gray-600 mt-2">$19.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Hat" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Warm Knitted Hat</h3>
+                        <p class="text-gray-600 mt-2">$14.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Mittens" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Knitted Mittens</h3>
+                        <p class="text-gray-600 mt-2">$12.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Blanket" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Soft Knitted Blanket</h3>
+                        <p class="text-gray-600 mt-2">$49.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Socks" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Cozy Knitted Socks</h3>
+                        <p class="text-gray-600 mt-2">$9.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Sweater" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Handmade Knitted Sweater</h3>
+                        <p class="text-gray-600 mt-2">$59.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Coasters" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Knitted Coaster Set</h3>
+                        <p class="text-gray-600 mt-2">$8.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Bag" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Knitted Tote Bag</h3>
+                        <p class="text-gray-600 mt-2">$29.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wooden Crafts Section -->
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Wooden Crafts</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Wooden Product Cards -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Coasters" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Wooden Coaster Set</h3>
+                        <p class="text-gray-600 mt-2">$14.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Box" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Carved Wooden Box</h3>
+                        <p class="text-gray-600 mt-2">$24.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Spoon" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Handcrafted Wooden Spoon</h3>
+                        <p class="text-gray-600 mt-2">$7.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Tray" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Wooden Serving Tray</h3>
+                        <p class="text-gray-600 mt-2">$34.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Frame" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Wooden Photo Frame</h3>
+                        <p class="text-gray-600 mt-2">$19.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Clock" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Rustic Wooden Clock</h3>
+                        <p class="text-gray-600 mt-2">$39.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Ornament" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Wooden Ornament Set</h3>
+                        <p class="text-gray-600 mt-2">$12.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Keychain" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Engraved Wooden Keychain</h3>
+                        <p class="text-gray-600 mt-2">$6.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jewelry Section -->
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Jewelry</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Jewelry Product Cards -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Beaded Necklace" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Beaded Necklace</h3>
+                        <p class="text-gray-600 mt-2">$24.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Silver Earrings" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Handmade Silver Earrings</h3>
+                        <p class="text-gray-600 mt-2">$19.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Bracelet" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Woven Bracelet</h3>
+                        <p class="text-gray-600 mt-2">$14.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Gemstone Ring" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Gemstone Ring</h3>
+                        <p class="text-gray-600 mt-2">$29.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Charm Necklace" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Charm Necklace</h3>
+                        <p class="text-gray-600 mt-2">$22.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Hoop Earrings" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Gold Hoop Earrings</h3>
+                        <p class="text-gray-600 mt-2">$17.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Anklet" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Beaded Anklet</h3>
+                        <p class="text-gray-600 mt-2">$12.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Pendant" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Handcrafted Pendant</h3>
+                        <p class="text-gray-600 mt-2">$27.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Panel -->
+    <div id="contactPanel" class="fixed top-0 right-0 h-full w-80 bg-white text-black transform translate-x-full transition-transform duration-300 shadow-xl z-20">
+        <div class="p-6 flex flex-col h-full">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">Contact Us</h2>
+                <button onclick="toggleContact()" class="text-gray-600 hover:text-gray-800">&times;</button>
+            </div>
+            <form class="space-y-4 flex-grow">
+                <div>
+                    <label for="name" class="block text-sm mb-1">Name</label>
+                    <input id="name" type="text" class="w-full px-3 py-2 rounded bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-purple-500">
+                </div>
+                <div>
+                    <label for="emailContact" class="block text-sm mb-1">Email</label>
+                    <input id="emailContact" type="email" class="w-full px-3 py-2 rounded bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-purple-500">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm mb-1">Message</label>
+                    <textarea id="message" rows="4" class="w-full px-3 py-2 rounded bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white py-2 rounded transition">
+                    Send Message
+                </button>
+                <iframe src="https://lottie.host/embed/81b0694c-4546-4e7b-953d-bfe2e6856aab/WeNVzOJUqQ.lottie" class="w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-lg shadow-lg"></iframe>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Crafty Creations. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Video Carousel and Contact Panel -->
+    <script>
+        function toggleContact() {
+            const panel = document.getElementById('contactPanel');
+            panel.classList.toggle('translate-x-full');
+        }
+
+        // Video Carousel Logic
+        const videos = document.querySelectorAll('.video-carousel video');
+        let currentVideo = 0;
+
+        function showNextVideo() {
+            // Remove active class and pause current video
+            if (videos[currentVideo]) {
+                videos[currentVideo].classList.remove('active');
+                videos[currentVideo].pause();
+            }
+
+            // Move to the next valid video
+            currentVideo = (currentVideo + 1) % videos.length;
+            while (videos[currentVideo] && !videos[currentVideo].src) {
+                currentVideo = (currentVideo + 1) % videos.length; // Skip invalid videos
+            }
+
+            // Add active class and play next video
+            if (videos[currentVideo]) {
+                videos[currentVideo].classList.add('active');
+                videos[currentVideo].play().catch(error => {
+                    console.error('Error playing video:', error);
+                });
+            }
+        }
+
+        // Initialize the first valid video
+        if (videos.length > 0) {
+            while (videos[currentVideo] && !videos[currentVideo].src) {
+                currentVideo = (currentVideo + 1) % videos.length;
+            }
+            if (videos[currentVideo]) {
+                videos[currentVideo].classList.add('active');
+                videos[currentVideo].play().catch(error => {
+                    console.error('Error playing video:', error);
+                });
+            }
+        }
+
+        // Change video every 5 seconds
+        setInterval(showNextVideo, 5000);
+    </script>
 </body>
 </html>
