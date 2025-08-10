@@ -40,6 +40,7 @@
              bg-[length:200%_200%] bg-clip-text text-transparent animate-aurora">
     Hand Crafted with Love
   </h1>
+  <br>
             <p class="text-lg text-gray-600 mb-8">Discover unique, handmade crafts made with passion and care.</p>
             <a href="#products" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700">Shop Now</a>
         </div>
@@ -47,16 +48,19 @@
 
     <!-- Sticky Navbar -->
     <header class="sticky top-0 glassy-nav shadow z-10">
-        <nav class="container mx-auto px-4 py-4 flex justify-center items-center">
-            <ul class="flex space-x-6">
-                <li><a href="#" class="text-black hover:text-purple-300">Home</a></li>
-                <li><a href="#products" class="text-black hover:text-purple-300">Shop</a></li>
-                <li><a href="#" class="text-black hover:text-purple-300">About</a></li>
-                <li><a href="#" class="text-black hover:text-purple-300">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
+  <nav class="container mx-auto px-4 py-4 flex justify-center items-center">
+    <ul class="flex space-x-6">
+      <li><a href="#" class="text-black hover:text-purple-300">Home</a></li>
+      <li><a href="#products" class="text-black hover:text-purple-300">Shop</a></li>
+      <li><a href="#" class="text-black hover:text-purple-300">About</a></li>
+      <li>
+        <button onclick="toggleContact()" class="text-black hover:text-purple-300">
+          Contact Us
+        </button>
+      </li>
+    </ul>
+  </nav>
+</header>
     <!-- Products Section -->
     <section id="products" class="py-16">
         <div class="container mx-auto px-4">
@@ -342,6 +346,32 @@
         </div>
     </section>
 
+    <div id="contactPanel" class="fixed top-0 right-0 h-full w-80 bg-gray-100 text-black transform translate-x-full transition-transform duration-300 shadow-xl z-20">
+    <div class="p-6 flex flex-col h-full">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold">Contact Us</h2>
+        <button onclick="toggleContact()" class="text-gray-400 hover:text-white">&times;</button>
+      </div>
+      <form class="space-y-4 flex-grow">
+        <div>
+          <label for="name" class="block text-sm mb-1">Name</label>
+          <input id="name" type="text" class="w-full px-3 py-2 rounded bg-white-700 text-black focus:outline-none focus:ring-2 focus:ring-purple-500">
+        </div>
+        <div>
+          <label for="emailContact" class="block text-sm mb-1">Email</label>
+          <input id="emailContact" type="email" class="w-full px-3 py-2 rounded bg-white-700 text-black focus:outline-none focus:ring-2 focus:ring-purple-500">
+        </div>
+        <div>
+          <label for="message" class="block text-sm mb-1">Message</label>
+          <textarea id="message" rows="4" class="w-full px-3 py-2 rounded bg-white-700 text-black focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white py-2 rounded transition">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4 text-center">
@@ -352,5 +382,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript to Toggle Panel -->
+  <script>
+    function toggleContact() {
+      const panel = document.getElementById('contactPanel');
+      panel.classList.toggle('translate-x-full');
+    }
+  </script>
 </body>
 </html>
