@@ -50,44 +50,6 @@
             position: relative;
             z-index: 0;
         }
-        /* Improved carousel styles */
-        .carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            padding-bottom: 10px;
-        }
-        .carousel::-webkit-scrollbar {
-            display: none;
-        }
-        .carousel-item {
-            flex: 0 0 auto;
-            scroll-snap-align: center;
-            margin-right: 16px;
-        }
-        .carousel-container {
-            position: relative;
-            max-width: 100%;
-            margin: 0 auto;
-        }
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 10;
-        }
-        .carousel-nav.prev {
-            left: 10px;
-        }
-        .carousel-nav.next {
-            right: 10px;
-        }
     </style>
     <style type="text/tailwindcss">
         @layer utilities {
@@ -146,9 +108,9 @@
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold text-yellow-800 mb-4">Featured Crafts</h2>
             <a href="#products" class="inline-block px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 mb-6">View All</a>
-            <div class="carousel-container">
-                <div class="carousel" id="featuredCrafts">
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+            <div class="relative">
+                <div class="carousel overflow-hidden whitespace-nowrap" id="featuredCrafts">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://crafty-clayworks.com/cdn/shop/articles/text-to-image_7eeb956c-a75b-4ccd-97c8-c09b8f595922.png?v=1710048179" alt="Premium Ceramic Vase Kit" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://themaritimeexplorer.ca/wp-content/uploads/2015/10/DSC_6757-1920x1140.jpg" alt="Premium Ceramic Vase Kit (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -162,7 +124,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://tse4.mm.bing.net/th/id/OIP.YbBCvZOnTQjSFo41T9a5awHaFj?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Luxury Knitted Blanket Kit" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://i.etsystatic.com/34806169/r/il/031bbc/3938283832/il_680x540.3938283832_oqi9.jpg" alt="Luxury Knitted Blanket Kit (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -176,7 +138,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://img.freepik.com/free-photo/handcrafted-wooden-decorative-vase_23-2151003058.jpg" alt="Rustic Wooden Pot Kit" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://img.freepik.com/premium-photo/handcrafted-wooden-decorative-vases_974629-198544.jpg" alt="Rustic Wooden Pot Kit (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -190,7 +152,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://tse1.mm.bing.net/th/id/OIP.WW-thVVPN2kLdSmUgZ9zfQHaHa?cb=thfc1&w=2560&h=2560&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Elegant Beaded Necklace" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://shop.southindiajewels.com/wp-content/uploads/2022/07/Matte-Temple-Necklace-Set-scaled.jpg" alt="Elegant Beaded Necklace (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -204,65 +166,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/6534368/pexels-photo-6534368.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Handpainted Ceramic Plate" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/5282269/pexels-photo-5282269.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Handpainted Ceramic Plate (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Handpainted Ceramic Plate</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 399.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/1646953/pexels-photo-1646953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cozy Knitted Scarf" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/1631181/pexels-photo-1631181.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cozy Knitted Scarf (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Cozy Knitted Scarf</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 299.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/2072165/pexels-photo-2072165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wooden Serving Tray" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/6507075/pexels-photo-6507075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wooden Serving Tray (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Wooden Serving Tray</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 599.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/5832550/pexels-photo-5832550.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Silver Wire Bracelet" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/302888/pexels-photo-302888.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Silver Wire Bracelet (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Silver Wire Bracelet</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 499.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
                 </div>
-                <button class="carousel-nav prev" onclick="scrollCarousel('featuredCrafts', -324)">&#10094;</button>
-                <button class="carousel-nav next" onclick="scrollCarousel('featuredCrafts', 324)">&#10095;</button>
             </div>
         </div>
     </section>
@@ -309,9 +213,9 @@
 
             <!-- Raw Materials for Ceramics Carousel -->
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Raw Materials for Ceramics</h2>
-            <div class="carousel-container">
-                <div class="carousel" id="ceramicsMaterials">
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+            <div class="relative">
+                <div class="carousel overflow-hidden whitespace-nowrap" id="ceramicsMaterials">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://images.pexels.com/photos/5282269/pexels-photo-5282269.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Clay" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://images.pexels.com/photos/5282269/pexels-photo-5282269.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Clay (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -325,7 +229,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://images.pexels.com/photos/7561413/pexels-photo-7561413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Glaze" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://images.pexels.com/photos/7561413/pexels-photo-7561413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Glaze (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -339,7 +243,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://images.pexels.com/photos/6259015/pexels-photo-6259015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pottery Wheel" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://images.pexels.com/photos/6259015/pexels-photo-6259015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pottery Wheel (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -353,7 +257,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://images.pexels.com/photos/6534368/pexels-photo-6534368.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Kiln" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://images.pexels.com/photos/6534368/pexels-photo-6534368.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Kiln (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -367,65 +271,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/7561412/pexels-photo-7561412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Ceramic Tools" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/7561412/pexels-photo-7561412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Ceramic Tools (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Ceramic Tools</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 250.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/7561414/pexels-photo-7561414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Slip" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/7561414/pexels-photo-7561414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Slip (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Slip</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 180.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/7561415/pexels-photo-7561415.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Underglaze" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/7561415/pexels-photo-7561415.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Underglaze (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Underglaze</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 220.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/7561416/pexels-photo-7561416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mold" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/7561416/pexels-photo-7561416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mold (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Mold</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 300.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
                 </div>
-                <button class="carousel-nav prev" onclick="scrollCarousel('ceramicsMaterials', -324)">&#10094;</button>
-                <button class="carousel-nav next" onclick="scrollCarousel('ceramicsMaterials', 324)">&#10095;</button>
             </div>
 
             <!-- Knitted Items Section -->
@@ -467,9 +313,9 @@
 
             <!-- Raw Materials for Knitted Items Carousel -->
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Raw Materials for Knitted Items</h2>
-            <div class="carousel-container">
-                <div class="carousel" id="knittedMaterials">
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+            <div class="relative">
+                <div class="carousel overflow-hidden whitespace-nowrap" id="knittedMaterials">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://images.pexels.com/photos/1646953/pexels-photo-1646953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Yarn" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://images.pexels.com/photos/1646953/pexels-photo-1646953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Yarn (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -483,7 +329,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://images.unsplash.com/photo-1570545887595-5a1d191f5b0a?auto=format&fit=crop&q=80" alt="Knitting Needles" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://images.unsplash.com/photo-1570545887595-5a1d191f5b0a?auto=format&fit=crop&q=80" alt="Knitting Needles (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -497,7 +343,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://images.pexels.com/photos/1453005/pexels-photo-1453005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Crochet Hooks" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://images.pexels.com/photos/1453005/pexels-photo-1453005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Crochet Hooks (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -511,7 +357,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://images.pexels.com/photos/1631181/pexels-photo-1631181.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wool" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://images.pexels.com/photos/1631181/pexels-photo-1631181.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wool (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -525,65 +371,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/1472908/pexels-photo-1472908.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cotton Thread" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/1472908/pexels-photo-1472908.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cotton Thread (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Cotton Thread</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 90.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/1472909/pexels-photo-1472909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Knitting Patterns" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/1472909/pexels-photo-1472909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Knitting Patterns (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Knitting Patterns</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 50.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/1472910/pexels-photo-1472910.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Stuffing" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/1472910/pexels-photo-1472910.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Stuffing (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Stuffing</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 70.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/1472911/pexels-photo-1472911.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Stitch Markers" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/1472911/pexels-photo-1472911.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Stitch Markers (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Stitch Markers</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 40.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
                 </div>
-                <button class="carousel-nav prev" onclick="scrollCarousel('knittedMaterials', -324)">&#10094;</button>
-                <button class="carousel-nav next" onclick="scrollCarousel('knittedMaterials', 324)">&#10095;</button>
             </div>
 
             <!-- Wooden Crafts Section -->
@@ -625,9 +413,9 @@
 
             <!-- Raw Materials for Wooden Crafts Carousel -->
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Raw Materials for Wooden Crafts</h2>
-            <div class="carousel-container">
-                <div class="carousel" id="woodenMaterials">
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+            <div class="relative">
+                <div class="carousel overflow-hidden whitespace-nowrap" id="woodenMaterials">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://images.pexels.com/photos/2072165/pexels-photo-2072165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wood Blocks" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://images.pexels.com/photos/2072165/pexels-photo-2072165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wood Blocks (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -641,7 +429,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://images.pexels.com/photos/6507075/pexels-photo-6507075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Carving Tools" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://images.pexels.com/photos/6507075/pexels-photo-6507075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Carving Tools (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -655,7 +443,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://images.pexels.com/photos/4348056/pexels-photo-4348056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Sandpaper" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://images.pexels.com/photos/4348056/pexels-photo-4348056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Sandpaper (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -669,7 +457,7 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
                         <div class="relative h-48">
                             <img src="https://images.pexels.com/photos/4348057/pexels-photo-4348057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Varnish" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
                             <img src="https://images.pexels.com/photos/4348057/pexels-photo-4348057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Varnish (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
@@ -683,104 +471,8 @@
                             <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/2072166/pexels-photo-2072166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wood Glue" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/2072166/pexels-photo-2072166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wood Glue (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Wood Glue</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 150.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/2072167/pexels-photo-2072167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wood Stain" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/2072167/pexels-photo-2072167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wood Stain (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Wood Stain</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 180.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/2072168/pexels-photo-2072168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Chisels" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/2072168/pexels-photo-2072168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Chisels (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Chisels</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 300.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-                        <div class="relative h-48">
-                            <img src="https://images.pexels.com/photos/2072169/pexels-photo-2072169.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wood Screws" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                            <img src="https://images.pexels.com/photos/2072169/pexels-photo-2072169.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wood Screws (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        </div>
-                        <div class="p-4 text-center">
-                            <h3 class="text-lg font-semibold text-gray-800">Wood Screws</h3>
-                            <div class="flex justify-center items-center space-x-1 mb-2">
-                                <span class="text-yellow-500">★★★★★</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Rs. 60.00</p>
-                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-nav prev" onclick="scrollCarousel('woodenMaterials', -324)">&#10094;</button>
-                <button class="carousel-nav next" onclick="scrollCarousel('woodenMaterials', 324)">&#10095;</button>
-            </div>
-
-            <!-- Jewelry Section -->
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Jewelry</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://tse1.mm.bing.net/th/id/OIP.WW-thVVPN2kLdSmUgZ9zfQHaHa?cb=thfc1&w=2560&h=2560&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Beaded Necklace" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800">Beaded Necklace</h3>
-                        <p class="text-gray-600 mt-2">$24.99</p>
-                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://shop.southindiajewels.com/wp-content/uploads/2022/07/Matte-Temple-Necklace-Set-scaled.jpg" alt="Silver Earrings" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800">Handmade Silver Earrings</h3>
-                        <p class="text-gray-600 mt-2">$19.99</p>
-                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://thumbs.dreamstime.com/z/handicrafts-india-6580931.jpg" alt="Bracelet" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800">Woven Bracelet</h3>
-                        <p class="text-gray-600 mt-2">$14.99</p>
-                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://im.whatshot.in/img/2018/Mar/shutterstock-265470635-1-1520241619.jpg?wm=1&w=1200&h=630&cc=1" alt="Gemstone Ring" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800">Gemstone Ring</h3>
-                        <p class="text-gray-600 mt-2">$29.99</p>
-                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
-                    </div>
                 </div>
             </div>
-
 
             <!-- Jewelry Section -->
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Jewelry</h2>
@@ -820,125 +512,68 @@
             </div>
 
             <!-- Raw Materials for Jewelry Carousel -->
-<h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Raw Materials for Jewelry</h2>
-<div class="carousel-container">
-    <div class="carousel" id="jewelryMaterials">
-        <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-            <div class="relative h-48">
-                <img src="https://images.pexels.com/photos/302888/pexels-photo-302888.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Beads" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                <img src="https://images.pexels.com/photos/302888/pexels-photo-302888.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Beads (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-            </div>
-            <div class="p-4 text-center">
-                <h3 class="text-lg font-semibold text-gray-800">Beads</h3>
-                <div class="flex justify-center items-center space-x-1 mb-2">
-                    <span class="text-yellow-500">★★★★★</span>
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Raw Materials for Jewelry</h2>
+            <div class="relative">
+                <div class="carousel overflow-hidden whitespace-nowrap" id="jewelryMaterials">
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                        <div class="relative h-48">
+                            <img src="https://images.pexels.com/photos/302888/pexels-photo-302888.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Beads" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                            <img src="https://images.pexels.com/photos/302888/pexels-photo-302888.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Beads (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-semibold text-gray-800">Beads</h3>
+                            <div class="flex justify-center items-center space-x-1 mb-2">
+                                <span class="text-yellow-500">★★★★★</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">Rs. 100.00</p>
+                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                        <div class="relative h-48">
+                            <img src="https://images.pexels.com/photos/5832550/pexels-photo-5832550.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wire" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                            <img src="https://images.pexels.com/photos/5832550/pexels-photo-5832550.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wire (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-semibold text-gray-800">Wire</h3>
+                            <div class="flex justify-center items-center space-x-1 mb-2">
+                                <span class="text-yellow-500">★★★★★</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">Rs. 80.00</p>
+                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                        <div class="relative h-48">
+                            <img src="https://images.pexels.com/photos/5832551/pexels-photo-5832551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pliers" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                            <img src="https://images.pexels.com/photos/5832551/pexels-photo-5832551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pliers (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-semibold text-gray-800">Pliers</h3>
+                            <div class="flex justify-center items-center space-x-1 mb-2">
+                                <span class="text-yellow-500">★★★★★</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">Rs. 150.00</p>
+                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                        <div class="relative h-48">
+                            <img src="https://images.pexels.com/photos/5832552/pexels-photo-5832552.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Clasps" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                            <img src="https://images.pexels.com/photos/5832552/pexels-photo-5832552.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Clasps (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-semibold text-gray-800">Clasps</h3>
+                            <div class="flex justify-center items-center space-x-1 mb-2">
+                                <span class="text-yellow-500">★★★★★</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">Rs. 50.00</p>
+                            <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                        </div>
+                    </div>
                 </div>
-                <p class="text-gray-600 mb-2">Rs. 100.00</p>
-                <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
             </div>
         </div>
-        <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-            <div class="relative h-48">
-                <img src="https://images.pexels.com/photos/5832550/pexels-photo-5832550.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wire" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                <img src="https://images.pexels.com/photos/5832550/pexels-photo-5832550.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wire (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-            </div>
-            <div class="p-4 text-center">
-                <h3 class="text-lg font-semibold text-gray-800">Wire</h3>
-                <div class="flex justify-center items-center space-x-1 mb-2">
-                    <span class="text-yellow-500">★★★★★</span>
-                </div>
-                <p class="text-gray-600 mb-2">Rs. 80.00</p>
-                <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-            </div>
-        </div>
-        <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-            <div class="relative h-48">
-                <img src="https://images.pexels.com/photos/5832551/pexels-photo-5832551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Clasps" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                <img src="https://images.pexels.com/photos/5832551/pexels-photo-5832551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Clasps (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-            </div>
-            <div class="p-4 text-center">
-                <h3 class="text-lg font-semibold text-gray-800">Clasps</h3>
-                <div class="flex justify-center items-center space-x-1 mb-2">
-                    <span class="text-yellow-500">★★★★★</span>
-                </div>
-                <p class="text-gray-600 mb-2">Rs. 50.00</p>
-                <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-            </div>
-        </div>
-        <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-            <div class="relative h-48">
-                <img src="https://images.pexels.com/photos/2780823/pexels-photo-2780823.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Gemstones" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                <img src="https://images.pexels.com/photos/2780823/pexels-photo-2780823.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Gemstones (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-            </div>
-            <div class="p-4 text-center">
-                <h3 class="text-lg font-semibold text-gray-800">Gemstones</h3>
-                <div class="flex justify-center items-center space-x-1 mb-2">
-                    <span class="text-yellow-500">★★★★★</span>
-                </div>
-                <p class="text-gray-600 mb-2">Rs. 150.00</p>
-                <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-            </div>
-        </div>
-        <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-            <div class="relative h-48">
-                <img src="https://images.pexels.com/photos/2780824/pexels-photo-2780824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pendants" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                <img src="https://images.pexels.com/photos/2780824/pexels-photo-2780824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pendants (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-            </div>
-            <div class="p-4 text-center">
-                <h3 class="text-lg font-semibold text-gray-800">Pendants</h3>
-                <div class="flex justify-center items-center space-x-1 mb-2">
-                    <span class="text-yellow-500">★★★★★</span>
-                </div>
-                <p class="text-gray-600 mb-2">Rs. 120.00</p>
-                <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-            </div>
-        </div>
-        <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-            <div class="relative h-48">
-                <img src="https://images.pexels.com/photos/2780825/pexels-photo-2780825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Charms" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                <img src="https://images.pexels.com/photos/2780825/pexels-photo-2780825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Charms (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-            </div>
-            <div class="p-4 text-center">
-                <h3 class="text-lg font-semibold text-gray-800">Charms</h3>
-                <div class="flex justify-center items-center space-x-1 mb-2">
-                    <span class="text-yellow-500">★★★★★</span>
-                </div>
-                <p class="text-gray-600 mb-2">Rs. 60.00</p>
-                <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-            </div>
-        </div>
-        <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-            <div class="relative h-48">
-                <img src="https://images.pexels.com/photos/2780826/pexels-photo-2780826.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Jump Rings" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                <img src="https://images.pexels.com/photos/2780826/pexels-photo-2780826.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Jump Rings (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-            </div>
-            <div class="p-4 text-center">
-                <h3 class="text-lg font-semibold text-gray-800">Jump Rings</h3>
-                <div class="flex justify-center items-center space-x-1 mb-2">
-                    <span class="text-yellow-500">★★★★★</span>
-                </div>
-                <p class="text-gray-600 mb-2">Rs. 40.00</p>
-                <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-            </div>
-        </div>
-        <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
-            <div class="relative h-48">
-                <img src="https://images.pexels.com/photos/2780827/pexels-photo-2780827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Crimping Tools" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
-                <img src="https://images.pexels.com/photos/2780827/pexels-photo-2780827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Crimping Tools (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-            </div>
-            <div class="p-4 text-center">
-                <h3 class="text-lg font-semibold text-gray-800">Crimping Tools</h3>
-                <div class="flex justify-center items-center space-x-1 mb-2">
-                    <span class="text-yellow-500">★★★★★</span>
-                </div>
-                <p class="text-gray-600 mb-2">Rs. 130.00</p>
-                <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-    <button class="carousel-nav prev" onclick="scrollCarousel('jewelryMaterials', -324)">&#10094;</button>
-    <button class="carousel-nav next" onclick="scrollCarousel('jewelryMaterials', 324)">&#10095;</button>
-</div>
     </section>
 
     <!-- Contact Panel -->
@@ -964,7 +599,7 @@
                 <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white py-2 rounded transition">
                     Send Message
                 </button>
-                <iframe src="https://lottie.host/embed/81b0694c-4546-4e7b-953d-bfe2e6856aab/WeNVzOJUqQ.lottie" title="Animated contact illustration" class="w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-lg shadow-lg"></iframe>
+                <iframe src="https://lottie.host/embed/81b0694c-4546-4e7b-953d-bfe2e6856aab/WeNVzOJUqQ.lottie" title="Animated contact illustration" class="w-[200px] h-[200px] md:w-[300px] md:h=[300px] rounded-lg shadow-lg"></iframe>
             </form>
         </div>
     </div>
@@ -972,7 +607,7 @@
     <!-- Customer Experiences Section -->
     <section class="py-14 bg-gray-100">
         <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Customer Experiences</h2>
-        <div class="swiper mySwiper max-w-7xl mx-auto px--4">
+        <div class="swiper mySwiper max-w-7xl mx-auto px-4">
             <div class="swiper-wrapper">
                 <div class="swiper-slide flex justify-center">
                     <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
@@ -1122,49 +757,31 @@
 
         setInterval(showNextVideo, 5000);
 
-        // Carousel Logic for Featured Crafts and Raw Materials
-        function initCarousel(carouselId) {
-            const carousel = document.getElementById(carouselId);
-            if (!carousel) {
-                console.error(`Carousel with ID ${carouselId} not found`);
-                return;
-            }
-
+        // Featured Crafts and Raw Materials Carousel Logic
+        function initCarousel(carouselElement) {
             let scrollPosition = 0;
-            const scrollAmount = 324; // Matches min-w-[300px] + 16px margin
-            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+            const scrollAmount = 324;
+            const maxScroll = carouselElement.scrollWidth - carouselElement.clientWidth;
 
             function autoScroll() {
-                if (maxScroll <= 0) return; // No scrolling if content fits
                 scrollPosition += scrollAmount;
                 if (scrollPosition >= maxScroll) {
                     scrollPosition = 0;
-                    carousel.scrollTo({ left: 0, behavior: 'auto' });
+                    carouselElement.scrollTo({ left: 0, behavior: 'auto' });
                 } else {
-                    carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+                    carouselElement.scrollTo({ left: scrollPosition, behavior: 'smooth' });
                 }
             }
 
             let interval = setInterval(autoScroll, 3000);
-            carousel.addEventListener('mouseenter', () => clearInterval(interval));
-            carousel.addEventListener('mouseleave', () => {
+            carouselElement.addEventListener('mouseenter', () => clearInterval(interval));
+            carouselElement.addEventListener('mouseleave', () => {
                 interval = setInterval(autoScroll, 3000);
             });
         }
 
-        // Manual scroll function for navigation arrows
-        function scrollCarousel(carouselId, amount) {
-            const carousel = document.getElementById(carouselId);
-            if (!carousel) return;
-            const newPosition = carousel.scrollLeft + amount;
-            carousel.scrollTo({ left: newPosition, behavior: 'smooth' });
-        }
-
-        // Initialize all carousels
-        document.addEventListener('DOMContentLoaded', () => {
-            ['featuredCrafts', 'ceramicsMaterials', 'knittedMaterials', 'woodenMaterials', 'jewelryMaterials'].forEach(id => {
-                initCarousel(id);
-            });
+        document.querySelectorAll('.carousel').forEach(carousel => {
+            initCarousel(carousel);
         });
 
         // Swiper for Customer Experiences

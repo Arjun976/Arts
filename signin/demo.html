@@ -1,103 +1,1068 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Experiences Carousel</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafty Creations - Handmade Crafts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        /* Custom style for glassy effect */
+        .glassy-nav {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+        /* Video carousel styles */
+        .video-carousel {
+            position: relative;
+            width: 100%;
+            height: 60vh; /* Full viewport height */
+            overflow: hidden;
+        }
+        .video-carousel video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .video-carousel video.active {
+            opacity: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5); /* Darker overlay for better text readability */
+        }
+        /* Added class for removing inline style from images */
+        .img-opacity-1 {
+            opacity: 1;
+        }
+    </style>
+    <style type="text/tailwindcss">
+    @layer utilities {
+      @keyframes aurora {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .animate-aurora {
+        animation: aurora 8s ease infinite;
+      }
+    }
+    </style>
 </head>
-<body class="bg-sky-500">
-
-  <section class="py-12">
-    <h2 class="text-3xl font-bold text-center text-black mb-10">
-      Customer Experiences
-    </h2>
-
-    <div class="swiper mySwiper max-w-7xl mx-auto px-4">
-      <div class="swiper-wrapper">
-
-        <!-- Card Template -->
-        <div class="swiper-slide flex justify-center">
-          <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-            <div class="text-xl mb-2">★★★★★</div>
-            <h3 class="font-bold text-lg mb-2">Lovely experienced</h3>
-            <p class="text-gray-600 mb-4">
-              Every good initiative by the entire team it is very engaging and fun filled. Thank you very much ...
-            </p>
-            <p class="font-bold">Vaishal Hathi</p>
-            <p class="text-gray-500">India</p>
-          </div>
+<body class="bg-gray-100 font-sans">
+    <!-- Hero Section with Video Carousel -->
+    <section class="video-carousel">
+        <video src="https://videos.pexels.com/video-files/3842770/3842770-uhd_2732_1440_25fps.mp4" autoplay muted loop></video>
+        <video src="https://videos.pexels.com/video-files/3826741/3826741-uhd_2732_1440_25fps.mp4" autoplay muted loop></video>
+        <video src="https://videos.pexels.com/video-files/5633999/5633999-uhd_2560_1440_24fps.mp4" autoplay muted loop></video>
+        <div class="hero-content">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-5xl font-bold 
+                    bg-gradient-to-r from-pink-300 via-cyan-200 to-yellow-200 
+                    bg-[length:200%_200%] bg-clip-text text-transparent animate-aurora">
+                    Crafty Creations
+                </h1>
+                <h2 class="text-3xl font-bold 
+                    bg-gradient-to-r from-pink-300 via-cyan-200 to-yellow-200 
+                    bg-[length:200%_200%] bg-clip-text text-transparent animate-aurora">
+                    Handcrafted with Love
+                </h2>
+                <br>
+                <p class="text-lg text-white mb-8">Discover unique, handmade crafts made with passion and care.</p>
+                <a href="#products" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700">Shop Now</a>
+            </div>
         </div>
+    </section>
 
-        <div class="swiper-slide flex justify-center">
-          <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-            <div class="text-xl mb-2">★★★★★</div>
-            <h3 class="font-bold text-lg mb-2">Colour Me Fairy Land Pre-Cut Shapes</h3>
-            <p class="text-gray-600 mb-4">
-              Beautiful product for kids to increase their creativity
-            </p>
-            <p class="font-bold">Sumitra</p>
-            <p class="text-gray-500">India</p>
-          </div>
+    <!-- Sticky Navbar -->
+    <header class="sticky top-0 glassy-nav shadow z-10">
+        <nav class="container mx-auto px-4 py-4 flex justify-center items-center">
+            <ul class="flex space-x-6">
+                <li><a href="#" class="text-black hover:text-purple-300">Home</a></li>
+                <li><a href="#products" class="text-black hover:text-purple-300">Shop</a></li>
+                <li><a href="#about" class="text-black hover:text-purple-300">About</a></li>
+                <li>
+                    <button onclick="toggleContact()" class="text-black hover:text-purple-300">Contact Us</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="bg-yellow-50 py-8">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-yellow-800 mb-4">Featured Crafts</h2>
+        <a href="#products" class="inline-block px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 mb-6">View All</a>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Product 1: Premium Ceramic Vase -->
+            <div class="group bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="relative h-48">
+                    <img src="https://crafty-clayworks.com/cdn/shop/articles/text-to-image_7eeb956c-a75b-4ccd-97c8-c09b8f595922.png?v=1710048179" alt="Premium Ceramic Vase Kit (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                    <img src="https://themaritimeexplorer.ca/wp-content/uploads/2015/10/DSC_6757-1920x1140.jpg" alt="Premium Ceramic Vase Kit (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="text-lg font-semibold text-gray-800">Premium Ceramic Vase</h3>
+                    <div class="flex justify-center items-center space-x-1 mb-2">
+                        <span class="text-yellow-500">★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                    <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Product 2: Luxury Knitted Blanket -->
+            <div class="group bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="relative h-48">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.YbBCvZOnTQjSFo41T9a5awHaFj?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Luxury Knitted Blanket Kit 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                    <img src="https://i.etsystatic.com/34806169/r/il/031bbc/3938283832/il_680x540.3938283832_oqi9.jpg" alt="Luxury Knitted Blanket Kit 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="text-lg font-semibold text-gray-800">Luxury Knitted Blanket</h3>
+                    <div class="flex justify-center items-center space-x-1 mb-2">
+                        <span class="text-yellow-500">★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                    <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Product 3:Luxury Knitted Blanket -->
+            <div class="group bg-white rounded-lg shadow-md overflow-hidden">
+               <div class="relative h-48">
+                    <img src="https://img.freepik.com/free-photo/handcrafted-wooden-decorative-vase_23-2151003058.jpg" alt="Rustic Wooden pot Kit  8 X 8inch 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                    <img src="https://img.freepik.com/premium-photo/handcrafted-wooden-decorative-vases_974629-198544.jpg" alt="Rustic Wooden pot 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="text-lg font-semibold text-gray-800">Luxury Knitted Blanket</h3>
+                    <div class="flex justify-center items-center space-x-1 mb-2">
+                        <span class="text-yellow-500">★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                    <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Product 4: Elegant Beaded Necklace -->
+            <div class="group bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="relative h-48">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.WW-thVVPN2kLdSmUgZ9zfQHaHa?cb=thfc1&w=2560&h=2560&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Elegant Beaded Necklace (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                    <img src="https://shop.southindiajewels.com/wp-content/uploads/2022/07/Matte-Temple-Necklace-Set-scaled.jpg" alt="Elegant Beaded Necklace (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="text-lg font-semibold text-gray-800">Elegant Beaded Necklace</h3>
+                    <div class="flex justify-center items-center space-x-1 mb-2">
+                        <span class="text-yellow-500">★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 mb-2"><s>Rs. 999.00</s> Rs. 699.00 <span class="text-red-500">Save Rs. 300</span></p>
+                    <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                </div>
+            </div>
         </div>
-
-        <div class="swiper-slide flex justify-center">
-          <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-            <div class="text-xl mb-2">★★★★★</div>
-            <h3 class="font-bold text-lg mb-2">Excellent collection of colors</h3>
-            <p class="text-gray-600 mb-4">
-              Love the variety of colors and collection of products. One stop shop for sure. Fast shipping and safe packing.
-            </p>
-            <p class="font-bold">Mohit Mahajan</p>
-            <p class="text-gray-500">India</p>
-          </div>
-        </div>
-
-        <div class="swiper-slide flex justify-center">
-          <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-            <div class="text-xl mb-2">★★★★★</div>
-            <h3 class="font-bold text-lg mb-2">Creative & Fun</h3>
-            <p class="text-gray-600 mb-4">
-              Kids loved it! It really sparks imagination.
-            </p>
-            <p class="font-bold">Ananya</p>
-            <p class="text-gray-500">India</p>
-          </div>
-        </div>
-
-        <div class="swiper-slide flex justify-center">
-          <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-            <div class="text-xl mb-2">★★★★★</div>
-            <h3 class="font-bold text-lg mb-2">High Quality</h3>
-            <p class="text-gray-600 mb-4">
-              Very durable and well-made products. Highly recommended.
-            </p>
-            <p class="font-bold">Rajesh</p>
-            <p class="text-gray-500">India</p>
-          </div>
-        </div>
-
-        <div class="swiper-slide flex justify-center">
-          <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-            <div class="text-xl mb-2">★★★★★</div>
-            <h3 class="font-bold text-lg mb-2">Best Service</h3>
-            <p class="text-gray-600 mb-4">
-              Super fast delivery and very friendly team.
-            </p>
-            <p class="font-bold">Priya</p>
-            <p class="text-gray-500">India</p>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Pagination -->
-      <div class="swiper-pagination mt-6"></div>
     </div>
-  </section>
-  <footer class="bg-gray-900 text-gray-400 py-8">
+</section>
+    <!-- Products Section -->
+    <section id="products" class="py-16">
+        <div class="container mx-auto px-4">
+            <!-- Ceramics Section -->
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Ceramics</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Ceramic Product Cards -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Vase" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Handmade Ceramic Vase</h3>
+                        <p class="text-gray-600 mt-2">$29.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Mug" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Handpainted Ceramic Mug</h3>
+                        <p class="text-gray-600 mt-2">$15.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Bowl" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Ceramic Serving Bowl</h3>
+                        <p class="text-gray-600 mt-2">$24.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Plate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Decorative Ceramic Plate</h3>
+                        <p class="text-gray-600 mt-2">$19.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Teapot" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Ceramic Teapot</h3>
+                        <p class="text-gray-600 mt-2">$34.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Planter" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Small Ceramic Planter</h3>
+                        <p class="text-gray-600 mt-2">$12.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Figurine" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Ceramic Animal Figurine</h3>
+                        <p class="text-gray-600 mt-2">$9.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Ceramic Candle Holder" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Ceramic Candle Holder</h3>
+                        <p class="text-gray-600 mt-2">$17.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+
+            
+                   <!-- Featured Crafts section -->
+<section class="bg-yellow-50 py-8">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-yellow-800 mb-4">Featured Crafts</h2>
+        <div class="relative">
+                        <img src="https://thumbs.dreamstime.com/z/handcraft-pottery-28269826.jpg" alt="Stacks of hand-painted ceramic bowls with yellow and green patterns arranged outdoors in bright sunlight, surrounded by other pottery, evoking a lively and artisanal atmosphere" class="w-full h-full object-cover transition-opacity duration-300 img-opacity-1">
+                <!-- Product 1: Premium Ceramic Vase -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://thumbs.dreamstime.com/z/handcraft-pottery-28269826.jpg" alt="Stacks of hand-painted ceramic bowls with yellow and green patterns arranged outdoors in bright sunlight, surrounded by other pottery, evoking a lively and artisanal atmosphere" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://thumbs.dreamstime.com/z/provencal-ceramics-26627083.jpg?w=768" alt="Premium Ceramic Vase Kit (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Premium Ceramic Vase</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 2: Luxury Knitted Blanket -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://thumbs.dreamstime.com/z/turkish-handcraft-colorful-ceramics-handmade-bowls-jugs-etc-67668255.jpg" alt="Luxury Knitted Blanket Kit 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://thumbs.dreamstime.com/z/turkish-ceramics-istanbul-traditional-turkish-ceramics-grand-bazaar-199930208.jpg" alt="Luxury Knitted Blanket Kit 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Luxury Knitted Blanket</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 3: Rustic Wooden Pot -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://media.gettyimages.com/id/1194771266/photo/handcraft-ceramics-in-italy.jpg?s=1024x1024&w=gi&k=20&c=zofPvTtTmuAdhK2TOmkGgd-XM3UTXd2x1RcsQheR9uk=" alt="Rustic Wooden Pot Kit 8 X 8inch 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://media.gettyimages.com/id/1194771266/photo/handcraft-ceramics-in-italy.jpg?s=1024x1024&w=gi&k=20&c=zofPvTtTmuAdhK2TOmkGgd-XM3UTXd2x1RcsQheR9uk=" alt="Rustic Wooden Pot 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Rustic Wooden Pot</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4: Elegant Beaded Necklace -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://thumbs.dreamstime.com/z/ceramics-shop-ravello-amalfi-coast-salerno-italy-ravello-italy-june-ceramics-shop-ravello-amalfi-coast-salerno-italy-122029016.jpg" alt="Elegant Beaded Necklace (Default)" class="w-full h-full object-cover transition-opacity duration-300 img-opacity-1">
+                        <img src="https://c8.alamy.com/comp/BTRT2T/ceramics-shop-in-the-main-square-of-ravello-campania-italy-BTRT2T.jpg" alt="Elegant Beaded Necklace (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Elegant Beaded Necklace</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2"><s>Rs. 999.00</s> Rs. 699.00 <span class="text-red-500">Save Rs. 300</span></p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 1: Premium Ceramic Vase -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://c8.alamy.com/comp/B8XA17/ceramic-souvenir-platesplaques-displayed-outside-a-shop-in-orvieto-B8XA17.jpg" class="w-full h-full object-cover transition-opacity duration-300 img-opacity-1" alt="Ceramic souvenir plates displayed outside a shop in Orvieto">
+                        <img src="https://c8.alamy.com/comp/B8XA17/ceramic-souvenir-platesplaques-displayed-outside-a-shop-in-orvieto-B8XA17.jpg" alt="Premium Ceramic Vase Kit (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Ceramics</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 2: Luxury Knitted Blanket -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.xnhEIrbvulIQYiVsILxKewHaFW?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Luxury Knitted Blanket Kit 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://c8.alamy.com/comp/DKH168/algarvian-ornamental-ceramics-algarve-portugal-DKH168.jpg" alt="Luxury Knitted Blanket Kit 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Luxury Knitted Blanket</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 3: Rustic Wooden Pot -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.CKJy1ziKK_FZIR70dv-M4AHaE0?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Rustic Wooden Pot Kit 8 X 8inch 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.OoGV-1107p8s3zaNsuBxAQHaE6?cb=thfc1&w=626&h=416&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Rustic Wooden Pot 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Rustic Wooden Pot</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 4: Elegant Beaded Necklace -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.7CNF7TyiW8qRx-f9X3sbeAHaFW?cb=thfc1&w=1600&h=1157&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Elegant Beaded Necklace (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://thumbs.dreamstime.com/z/traditional-old-ceramics-2822752.jpg" alt="Elegant Beaded Necklace (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Elegant Beaded Necklace</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2"><s>Rs. 999.00</s> Rs. 699.00 <span class="text-red-500">Save Rs. 300</span></p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+            <!-- Knitted Items Section -->
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Knitted Items</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Knitted Product Cards -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Scarf" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Cozy Knitted Scarf</h3>
+                        <p class="text-gray-600 mt-2">$19.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Hat" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Warm Knitted Hat</h3>
+                        <p class="text-gray-600 mt-2">$14.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Mittens" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Knitted Mittens</h3>
+                        <p class="text-gray-600 mt-2">$12.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Blanket" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Soft Knitted Blanket</h3>
+                        <p class="text-gray-600 mt-2">$49.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Socks" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Cozy Knitted Socks</h3>
+                        <p class="text-gray-600 mt-2">$9.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Sweater" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Handmade Knitted Sweater</h3>
+                        <p class="text-gray-600 mt-2">$59.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Coasters" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Knitted Coaster Set</h3>
+                        <p class="text-gray-600 mt-2">$8.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Knitted Bag" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Knitted Tote Bag</h3>
+                        <p class="text-gray-600 mt-2">$29.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            
+                   <!-- Featured Crafts section -->
+<section class="bg-yellow-50 py-8">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-yellow-800 mb-4">Featured Crafts</h2>
+        <div class="relative">
+            <div class="carousel overflow-hidden whitespace-nowrap" id="craftCarousel">
+                <!-- Product 1: Premium Ceramic Vase -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://thumbs.dreamstime.com/z/colorful-woolen-knitted-hats-gloves-cusco-peru-handcraft-souvenirs-peru-colorful-woolen-knitted-hats-gloves-269963600.jpg" alt="Premium Ceramic Vase Kit (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://thumbs.dreamstime.com/z/woolen-knitted-hats-peru-handcraft-souvenirs-colorful-tradition-design-indian-market-lima-163680543.jpg" alt="Premium Ceramic Vase Kit (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Premium Ceramic Vase</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 2: Luxury Knitted Blanket -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.YbBCvZOnTQjSFo41T9a5awHaFj?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Luxury Knitted Blanket Kit 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://i.etsystatic.com/34806169/r/il/031bbc/3938283832/il_680x540.3938283832_oqi9.jpg" alt="Luxury Knitted Blanket Kit 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Luxury Knitted Blanket</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 3: Rustic Wooden Pot -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://thumbs.dreamstime.com/z/peru-colorful-woolen-knitted-hats-cusco-style-handcraft-souvenirs-peru-colorful-woolen-knitted-hats-tradition-design-269546469.jpg" alt="Rustic Wooden Pot Kit 8 X 8inch 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.PXx01JHqk9BjJashHMpWsQEgDY?cb=thfc1&w=512&h=384&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Rustic Wooden Pot 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Rustic Wooden Pot</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4: Elegant Beaded Necklace -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://thumbs.dreamstime.com/z/cute-knitted-teddy-bear-toy-amigurumi-handcraft-cute-knitted-teddy-bear-toy-amigurumi-handcraft-wool-262901450.jpg" alt="Elegant Beaded Necklace (Default)" class="w-full h-full object-cover transition-opacity duration-300 opacity-100">
+                        <img src="https://thumbs.dreamstime.com/b/pink-knitted-dressed-toy-teddy-bear-cute-isolated-white-created-generative-ai-technology-279308386.jpg" alt="Pink Knitted Teddy Bear Toy" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Elegant Beaded Necklace</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2"><s>Rs. 999.00</s> Rs. 699.00 <span class="text-red-500">Save Rs. 300</span></p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 1: Premium Ceramic Vase -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://i.etsystatic.com/24703533/r/il/98c2d6/2607713307/il_1140xN.2607713307_j786.jpg" alt="Premium Ceramic Vase Kit (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://i.pinimg.com/originals/10/ee/4e/10ee4ef99e30654b469f293e2f52fc47.jpg" alt="Premium Ceramic Vase Kit (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Ceramics</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 2: Luxury Knitted Blanket -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://www.shutterstock.com/image-photo/wooden-handicrafts-known-jhalar-india-600w-2037664043.jpg" alt="Luxury Knitted Blanket Kit 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://www.shutterstock.com/image-photo/traditional-place-wicker-baskets-sale-600w-2117090348.jpg" alt="Luxury Knitted Blanket Kit 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Luxury Knitted Blanket</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 3: Rustic Wooden Pot -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://img.freepik.com/free-photo/handcrafted-wooden-decorative-vase_23-2151003058.jpg" alt="Rustic Wooden Pot Kit 8 X 8inch 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://img.freepik.com/premium-photo/handcrafted-wooden-decorative-vases_974629-198544.jpg" alt="Rustic Wooden Pot 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Rustic Wooden Pot</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 4: Elegant Beaded Necklace -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://thumbs.dreamstime.com/z/handicrafts-india-6580931.jpg" alt="Elegant Beaded Necklace (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://im.whatshot.in/img/2018/Mar/shutterstock-265470635-1-1520241619.jpg?wm=1&w=1200&h=630&cc=1" alt="Elegant Beaded Necklace (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Elegant Beaded Necklace</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2"><s>Rs. 999.00</s> Rs. 699.00 <span class="text-red-500">Save Rs. 300</span></p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <!-- Wooden Crafts Section -->
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Wooden Crafts</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Wooden Product Cards -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Coasters" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Wooden Coaster Set</h3>
+                        <p class="text-gray-600 mt-2">$14.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Box" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Carved Wooden Box</h3>
+                        <p class="text-gray-600 mt-2">$24.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Spoon" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Handcrafted Wooden Spoon</h3>
+                        <p class="text-gray-600 mt-2">$7.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Tray" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Wooden Serving Tray</h3>
+                        <p class="text-gray-600 mt-2">$34.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Frame" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Wooden Photo Frame</h3>
+                        <p class="text-gray-600 mt-2">$19.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Clock" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Rustic Wooden Clock</h3>
+                        <p class="text-gray-600 mt-2">$39.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Ornament" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Wooden Ornament Set</h3>
+                        <p class="text-gray-600 mt-2">$12.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Wooden Keychain" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Engraved Wooden Keychain</h3>
+                        <p class="text-gray-600 mt-2">$6.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            
+<section class="bg-yellow-50 py-8">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-yellow-800 mb-4">Featured Crafts</h2>
+        <div class="relative carousel-container">
+            <div class="carousel overflow-hidden whitespace-nowrap" id="craftCarousel3">
+                <!-- Product 1: Premium Ceramic Vase -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://img.freepik.com/premium-photo/wooden-crafted-fox_875825-54082.jpg" alt="Premium Ceramic Vase Kit (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://i.etsystatic.com/23281597/r/il/090ad7/4949850129/il_300x300.4949850129_8lth.jpg" alt="Premium Ceramic Vase Kit (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Wooden Craft</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 2: Luxury Knitted Blanket -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://dygtyjqp7pi0m.cloudfront.net/i/44974/38489044_1.jpg?v=8D85D9D510536B0" alt="Luxury Knitted Blanket Kit 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.NHpQ1-bUoSdvJAn2oWuxqAHaFj?cb=thfc1&w=1080&h=810&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Luxury Knitted Blanket Kit 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Luxury Knitted Blanket</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 3: Rustic Wooden Pot -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://thumbs.dreamstime.com/z/hindu-temple-main-door-hand-wood-crafted-indian-gods-71022764.jpg" alt="Rustic Wooden Pot Kit 8 X 8inch 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://thumbs.dreamstime.com/z/door-hindu-temple-taken-kuala-selangor-malaysia-65950074.jpg?w=992" alt="Rustic Wooden Pot 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Rustic Wooden Pot</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 4: Elegant Beaded Necklace -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://i.pinimg.com/originals/84/93/39/849339936c1ac63578e36dd9b4b69518.jpg" alt="Elegant Beaded Necklace (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://i.etsystatic.com/45281182/r/il/b59670/5733104936/il_1080xN.5733104936_30f5.jpg" alt="Elegant Beaded Necklace (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Elegant Beaded Necklace</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2"><s>Rs. 999.00</s> Rs. 699.00 <span class="text-red-500">Save Rs. 300</span></p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+            <!-- Jewelry Section -->
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Jewelry</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Jewelry Product Cards -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Beaded Necklace" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Beaded Necklace</h3>
+                        <p class="text-gray-600 mt-2">$24.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Silver Earrings" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Handmade Silver Earrings</h3>
+                        <p class="text-gray-600 mt-2">$19.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Bracelet" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Woven Bracelet</h3>
+                        <p class="text-gray-600 mt-2">$14.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Gemstone Ring" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Gemstone Ring</h3>
+                        <p class="text-gray-600 mt-2">$29.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Charm Necklace" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Charm Necklace</h3>
+                        <p class="text-gray-600 mt-2">$22.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Hoop Earrings" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Gold Hoop Earrings</h3>
+                        <p class="text-gray-600 mt-2">$17.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Anklet" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Beaded Anklet</h3>
+                        <p class="text-gray-600 mt-2">$12.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Pendant" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Handcrafted Pendant</h3>
+                        <p class="text-gray-600 mt-2">$27.99</p>
+                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+                   <!-- Featured Crafts section -->
+<section class="bg-yellow-50 py-8">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-yellow-800 mb-4">Featured Crafts</h2>
+        <div class="relative">
+            <div class="carousel overflow-hidden whitespace-nowrap" id="craftCarousel">
+                <!-- Product 1: Premium Ceramic Vase -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://crafty-clayworks.com/cdn/shop/articles/text-to-image_7eeb956c-a75b-4ccd-97c8-c09b8f595922.png?v=1710048179" alt="Premium Ceramic Vase Kit (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://themaritimeexplorer.ca/wp-content/uploads/2015/10/DSC_6757-1920x1140.jpg" alt="Premium Ceramic Vase Kit (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Premium Ceramic Vase</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 2: Luxury Knitted Blanket -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.YbBCvZOnTQjSFo41T9a5awHaFj?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Luxury Knitted Blanket Kit 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://i.etsystatic.com/34806169/r/il/031bbc/3938283832/il_680x540.3938283832_oqi9.jpg" alt="Luxury Knitted Blanket Kit 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Luxury Knitted Blanket</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 3: Rustic Wooden Pot -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://thumbs.dreamstime.com/z/peru-colorful-woolen-knitted-hats-cusco-style-handcraft-souvenirs-peru-colorful-woolen-knitted-hats-tradition-design-269546469.jpg" alt="Rustic Wooden Pot Kit 8 X 8inch 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.PXx01JHqk9BjJashHMpWsQEgDY?cb=thfc1&w=512&h=384&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Rustic Wooden Pot 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Rustic Wooden Pot</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4: Elegant Beaded Necklace -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.WW-thVVPN2kLdSmUgZ9zfQHaHa?cb=thfc1&w=2560&h=2560&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Elegant Beaded Necklace (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://shop.southindiajewels.com/wp-content/uploads/2022/07/Matte-Temple-Necklace-Set-scaled.jpg" alt="Elegant Beaded Necklace (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Elegant Beaded Necklace</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2"><s>Rs. 999.00</s> Rs. 699.00 <span class="text-red-500">Save Rs. 300</span></p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 1: Premium Ceramic Vase -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://i.etsystatic.com/24703533/r/il/98c2d6/2607713307/il_1140xN.2607713307_j786.jpg" alt="Premium Ceramic Vase Kit (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://i.pinimg.com/originals/10/ee/4e/10ee4ef99e30654b469f293e2f52fc47.jpg" alt="Premium Ceramic Vase Kit (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Ceramics</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 2: Luxury Knitted Blanket -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://www.shutterstock.com/image-photo/wooden-handicrafts-known-jhalar-india-600w-2037664043.jpg" alt="Luxury Knitted Blanket Kit 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://www.shutterstock.com/image-photo/traditional-place-wicker-baskets-sale-600w-2117090348.jpg" alt="Luxury Knitted Blanket Kit 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Luxury Knitted Blanket</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 3: Rustic Wooden Pot -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://img.freepik.com/free-photo/handcrafted-wooden-decorative-vase_23-2151003058.jpg" alt="Rustic Wooden Pot Kit 8 X 8inch 1 Box (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://img.freepik.com/premium-photo/handcrafted-wooden-decorative-vases_974629-198544.jpg" alt="Rustic Wooden Pot 1 Box (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Rustic Wooden Pot</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2">Rs. 449.00</p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 4: Elegant Beaded Necklace -->
+                <div class="group inline-block bg-white rounded-lg shadow-md overflow-hidden min-w-[300px] snap-center mx-2">
+                    <div class="relative h-48">
+                        <img src="https://thumbs.dreamstime.com/z/handicrafts-india-6580931.jpg" alt="Elegant Beaded Necklace (Default)" class="w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                        <img src="https://im.whatshot.in/img/2018/Mar/shutterstock-265470635-1-1520241619.jpg?wm=1&w=1200&h=630&cc=1" alt="Elegant Beaded Necklace (Hover)" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Elegant Beaded Necklace</h3>
+                        <div class="flex justify-center items-center space-x-1 mb-2">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 mb-2"><s>Rs. 999.00</s> Rs. 699.00 <span class="text-red-500">Save Rs. 300</span></p>
+                        <button class="w-full bg-yellow-200 text-yellow-800 px-4 py-2 rounded hover:bg-yellow-300">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+        </div>
+    </section>
+
+    <!-- Contact Panel -->
+    <div id="contactPanel" class="fixed top-0 right-0 h-full w-80 bg-white text-black transform translate-x-full transition-transform duration-300 shadow-xl z-20">
+        <div class="p-6 flex flex-col h-full">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">Contact Us</h2>
+                <button onclick="toggleContact()" class="text-gray-600 hover:text-gray-800">&times;</button>
+            </div>
+            <form class="space-y-4 flex-grow">
+                <div>
+                    <label for="name" class="block text-sm mb-1">Name</label>
+                    <input id="name" type="text" class="w-full px-3 py-2 rounded bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-purple-500">
+                </div>
+                <div>
+                    <label for="emailContact" class="block text-sm mb-1">Email</label>
+                    <input id="emailContact" type="email" class="w-full px-3 py-2 rounded bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-purple-500">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm mb-1">Message</label>
+                    <textarea id="message" rows="4" class="w-full px-3 py-2 rounded bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white py-2 rounded transition">
+                    Send Message
+                </button>
+                <iframe src="https://lottie.host/embed/81b0694c-4546-4e7b-953d-bfe2e6856aab/WeNVzOJUqQ.lottie" title="Animated contact illustration" class="w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-lg shadow-lg"></iframe>
+            </form>
+        </div>
+    <!-- Customer Experiences Section -->
+    <section class="py-14 bg-black-100">
+        <h2 class="text-3xl font-bold text-center text-black mb-10">
+            Customer Experiences
+        </h2>
+        <div class="swiper mySwiper max-w-7xl mx-auto px-4">
+            <div class="swiper-wrapper">
+                <!-- Card Template -->
+                <div class="swiper-slide flex justify-center">
+                    <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="text-xl mb-2">★★★★★</div>
+                        <h3 class="font-bold text-lg mb-2">Lovely experienced</h3>
+                        <p class="text-gray-600 mb-4">
+                            Every good initiative by the entire team it is very engaging and fun filled. Thank you very much ...
+                        </p>
+                        <p class="font-bold">Vaishal Hathi</p>
+                        <p class="text-gray-500">India</p>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="text-xl mb-2">★★★★★</div>
+                        <h3 class="font-bold text-lg mb-2">Colour Me Fairy Land Pre-Cut Shapes</h3>
+                        <p class="text-gray-600 mb-4">
+                            Beautiful product for kids to increase their creativity
+                        </p>
+                        <p class="font-bold">Sumitra</p>
+                        <p class="text-gray-500">India</p>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="text-xl mb-2">★★★★★</div>
+                        <h3 class="font-bold text-lg mb-2">Excellent collection of colors</h3>
+                        <p class="text-gray-600 mb-4">
+                            Love the variety of colors and collection of products. One stop shop for sure. Fast shipping and safe packing.
+                        </p>
+                        <p class="font-bold">Mohit Mahajan</p>
+                        <p class="text-gray-500">India</p>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="text-xl mb-2">★★★★★</div>
+                        <h3 class="font-bold text-lg mb-2">Creative & Fun</h3>
+                        <p class="text-gray-600 mb-4">
+                            Kids loved it! It really sparks imagination.
+                        </p>
+                        <p class="font-bold">Ananya</p>
+                        <p class="text-gray-500">India</p>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="text-xl mb-2">★★★★★</div>
+                        <h3 class="font-bold text-lg mb-2">High Quality</h3>
+                        <p class="text-gray-600 mb-4">
+                            Very durable and well-made products. Highly recommended.
+                        </p>
+                        <p class="font-bold">Rajesh</p>
+                        <p class="text-gray-500">India</p>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="text-xl mb-2">★★★★★</div>
+                        <h3 class="font-bold text-lg mb-2">Best Service</h3>
+                        <p class="text-gray-600 mb-4">
+                            Super fast delivery and very friendly team.
+                        </p>
+                        <p class="font-bold">Priya</p>
+                        <p class="text-gray-500">India</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination mt-6"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">About Crafty Creations</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://thumbs.dreamstime.com/b/leather-craft-tools-old-wood-table-workshop-shed-craftsman-workspace-grounge-dark-texture-background-192788942.jpg?w=768" alt="Crafty Creations Workshop" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+                <div class="md:w-1/2">
+                    <p class="text-gray-600 mb-4">
+                        At Crafty Creations, we believe in the beauty of handmade artistry. Founded with a passion for creativity, our small team of skilled artisans pours love and care into every piece we create. From ceramics to knitted items, wooden crafts to jewelry, each product tells a story of dedication and craftsmanship.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Our mission is to bring unique, high-quality handmade goods to your home, celebrating the imperfections that make each piece one-of-a-kind. We source sustainable materials and work with local artisans to ensure every creation reflects our commitment to quality and community.
+                    </p>
+                    <a href="#contactPanel" onclick="toggleContact()" class="inline-block bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8">
   <div class="container mx-auto text-center">
     <!-- Navigation Links -->
     <div class="flex justify-center flex-wrap gap-6 mb-4 text-sm">
@@ -111,11 +1076,11 @@
 
     <!-- Social Icons -->
     <div class="flex justify-center space-x-6 mb-4 text-xl">
-      <a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="hover:text-white transition"><i class="fab fa-x-twitter"></i></a>
-      <a href="#" class="hover:text-white transition"><i class="fab fa-github"></i></a>
-      <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
+      <a href="#" class="hover:text-white transition" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="hover:text-white transition" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="hover:text-white transition" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" class="hover:text-white transition" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" class="hover:text-white transition" title="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
 
     <!-- Copyright -->
@@ -123,25 +1088,147 @@
   </div>
 </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: true,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      breakpoints: {
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 }
-      }
+    <!-- JavaScript for Video Carousel and Contact Panel -->
+<script>
+    // Function to initialize and manage each carousel
+    function initCarousel(carouselElement) {
+        let scrollPosition = 0;
+        const scrollAmount = 324; // Adjusted for product width (300px) + margin (2 * 12px)
+        const maxScroll = carouselElement.scrollWidth - carouselElement.clientWidth;
+
+        function autoScroll() {
+            scrollPosition += scrollAmount;
+            if (scrollPosition >= maxScroll) {
+                scrollPosition = 0; // Loop back to start
+            }
+            carouselElement.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+        }
+
+        // Start auto-scrolling every 3 seconds
+        const interval = setInterval(autoScroll, 3000);
+
+        // Pause on hover
+        carouselElement.addEventListener('mouseenter', () => clearInterval(interval));
+        carouselElement.addEventListener('mouseleave', () => {
+            interval = setInterval(autoScroll, 3000);
+        });
+
+        // Ensure seamless loop by resetting position instantly if at end
+        carouselElement.addEventListener('scroll', () => {
+            if (carouselElement.scrollLeft + carouselElement.clientWidth >= carouselElement.scrollWidth) {
+                scrollPosition = 0;
+                carouselElement.scrollTo({ left: 0, behavior: 'auto' });
+            }
+        });
+    }
+
+    // Initialize all carousels with class 'carousel'
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        initCarousel(carousel);
     });
-  </script>
+</script>
+
+
+
+     <script>
+    const carousel = document.getElementById('craftCarousel');
+    let scrollPosition = 0;
+    const scrollAmount = 324; // Adjusted for product width (300px) + margin (2 * 12px)
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+    function autoScroll() {
+        scrollPosition += scrollAmount;
+        if (scrollPosition >= maxScroll) {
+            scrollPosition = 0; // Loop back to start
+        }
+        carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+    }
+
+    // Start auto-scrolling every 3 seconds
+    const interval = setInterval(autoScroll, 3000);
+
+    // Pause on hover
+    carousel.addEventListener('mouseenter', () => clearInterval(interval));
+    carousel.addEventListener('mouseleave', () => {
+        interval = setInterval(autoScroll, 3000);
+    });
+
+    // Ensure seamless loop by resetting position instantly if at end
+    carousel.addEventListener('scroll', () => {
+        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+            scrollPosition = 0;
+            carousel.scrollTo({ left: 0, behavior: 'auto' });
+        }
+    });
+</script>
+    <script>
+        function toggleContact() {
+            const panel = document.getElementById('contactPanel');
+            panel.classList.toggle('translate-x-full');
+        }
+
+        // Video Carousel Logic
+        const videos = document.querySelectorAll('.video-carousel video');
+        let currentVideo = 0;
+
+        function showNextVideo() {
+            // Remove active class and pause current video
+            if (videos[currentVideo]) {
+                videos[currentVideo].classList.remove('active');
+                videos[currentVideo].pause();
+            }
+
+            // Move to the next valid video
+            currentVideo = (currentVideo + 1) % videos.length;
+            while (videos[currentVideo] && !videos[currentVideo].src) {
+                currentVideo = (currentVideo + 1) % videos.length; // Skip invalid videos
+            }
+
+            // Add active class and play next video
+            if (videos[currentVideo]) {
+                videos[currentVideo].classList.add('active');
+                videos[currentVideo].play().catch(error => {
+                    console.error('Error playing video:', error);
+                });
+            }
+        }
+
+        // Initialize the first valid video
+        if (videos.length > 0) {
+            while (videos[currentVideo] && !videos[currentVideo].src) {
+                currentVideo = (currentVideo + 1) % videos.length;
+            }
+            if (videos[currentVideo]) {
+                videos[currentVideo].classList.add('active');
+                videos[currentVideo].play().catch(error => {
+                    console.error('Error playing video:', error);
+                });
+            }
+        }
+
+        // Change video every 5 seconds
+        setInterval(showNextVideo, 5000);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+    </script>
 </body>
 </html>
