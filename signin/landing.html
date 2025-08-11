@@ -9,6 +9,83 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
 
+
+
+@media (max-width: 767px) {
+    #navMenu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    #navMenu.show {
+        display: flex;
+    }
+    #navMenu li {
+        margin: 0.5rem 0;
+    }
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* Responsive Carousel */
+.carousel {
+    scroll-snap-type: x proximity;
+}
+.carousel-item {
+    min-width: calc(100% - 32px); /* Full width on mobile with padding */
+}
+@media (min-width: 640px) {
+    .carousel-item {
+        min-width: 300px; /* Original min-width for larger screens */
+    }
+}
+
+/* Responsive Grid Layout */
+.grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Contact Panel */
+@media (max-width: 640px) {
+    #contactPanel {
+        width: 100%;
+    }
+}
+
+/* Hero Section */
+.video-carousel {
+    height: 50vh;
+}
+@media (min-width: 768px) {
+    .video-carousel {
+        height: 60vh;
+    }
+}
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+.hero-content h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+}
+
+/* Section Headings */
+section h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+}
+
          .dropdown-menu {
             display: none;
             opacity: 0;
@@ -101,6 +178,28 @@
         .carousel-nav.next {
             right: 10px;
         }
+
+        /* contact pannel css */
+
+        #contactPanel .pt-\[100\%\] {
+    position: relative;
+    padding-top: 100%; /* Maintains 1:1 aspect ratio for the iframe */
+}
+#contactPanel iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+@media (max-width: 640px) {
+    #contactPanel {
+        width: 100%;
+    }
+    #contactPanel .pt-\[100\%\] {
+        padding-top: 75%; /* Adjust aspect ratio for smaller screens */
+    }
+}
     </style>
     <style type="text/tailwindcss">
         @layer utilities {
@@ -141,35 +240,37 @@
     </section>
 
     <!-- Sticky Navbar -->
-    <header class="sticky top-0 glassy-nav shadow z-10">
-        <nav class="container mx-auto px-4 py-4 flex justify-center items-center">
-            <ul class="flex space-x-14 text-lg font-semibold">
-                 <li><a href="#featured" class="text-black hover:text-purple-300">Featured Craft</a></li>
-                  <li><a href="#ceramics" class="text-black hover:text-purple-300">Ceramics</a></li>
-                   <li><a href="#knitted" class="text-black hover:text-purple-300">Knitted Item</a></li>
-                    <li><a href="#wooden" class="text-black hover:text-purple-300">Wood Crafts</a></li>
-                     <li><a href="#jwelery" class="text-black hover:text-purple-300">Jwelery</a></li>
-             <li class="relative">
-                    <button id="shopDropdownButton" class="text-black hover:text-purple-300 focus:outline-none flex items-center">
-                        Materials
-                        <i class="fas fa-chevron-down ml-2"></i>
-                    </button>
-                    <ul id="shopDropdown" class="dropdown-menu absolute mt-2 w-48 bg-white glassy-nav rounded-lg shadow-lg z-20">
-                        <li><a href="#ceramics1" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Ceramics</a></li>
-                        <li><a href="#knitted1" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Knitted Items</a></li>
-                        <li><a href="#wooden1" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Wooden Crafts</a></li>
-                        <li><a href="#jwelery1" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Jewelry</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" class="text-black hover:text-purple-300">Home</a></li>
-                <li><a href="#products" class="text-black hover:text-purple-300">Shop</a></li>
-                <li><a href="#about" class="text-black hover:text-purple-300">About</a></li>
-                <li>
-                    <button onclick="toggleContact()" class="text-black hover:text-purple-300">Contact Us</button>
-                </li>
-            </ul>
-        </nav>
-    </header>
+<header class="sticky top-0 glassy-nav shadow z-10">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold text-black">Crafty Creations</div>
+        <button id="mobileMenuButton" class="md:hidden text-black focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+        <ul id="navMenu" class="hidden md:flex md:space-x-8 text-lg font-semibold">
+            <li><a href="#featured" class="text-black hover:text-purple-300">Featured Craft</a></li>
+            <li><a href="#ceramics" class="text-black hover:text-purple-300">Ceramics</a></li>
+            <li><a href="#knitted" class="text-black hover:text-purple-300">Knitted Item</a></li>
+            <li><a href="#wooden" class="text-black hover:text-purple-300">Wood Crafts</a></li>
+            <li><a href="#jewelry" class="text-black hover:text-purple-300">Jewelry</a></li>
+            <li class="relative">
+                <button id="shopDropdownButton" class="text-black hover:text-purple-300 focus:outline-none flex items-center">
+                    Materials
+                    <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+                <ul id="shopDropdown" class="dropdown-menu absolute mt-2 w-48 bg-white glassy-nav rounded-lg shadow-lg z-20">
+                    <li><a href="#ceramics1" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Ceramics</a></li>
+                    <li><a href="#knitted1" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Knitted Items</a></li>
+                    <li><a href="#wooden1" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Wooden Crafts</a></li>
+                    <li><a href="#jewelry1" class="block px-4 py-2 text-black hover:text-purple-700 hover:bg-purple-100">Materials For Jewelry</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="text-black hover:text-purple-300">Home</a></li>
+            <li><a href="#products" class="text-black hover:text-purple-300">Shop</a></li>
+            <li><a href="#about" class="text-black hover:text-purple-300">About</a></li>
+            <li><button onclick="toggleContact()" class="text-black hover:text-purple-300">Contact Us</button></li>
+        </ul>
+    </nav>
+</header>
 
     <!-- Featured Crafts Section -->
     <section class="bg-yellow-50 py-8">
@@ -938,31 +1039,33 @@
 
     <!-- Contact Panel -->
     <div id="contactPanel" class="fixed top-0 right-0 h-full w-80 bg-white text-black transform translate-x-full transition-transform duration-300 shadow-xl z-20">
-        <div class="p-6 flex flex-col h-full">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-bold">Contact Us</h2>
-                <button onclick="toggleContact()" class="text-gray-600 hover:text-gray-800">&times;</button>
-            </div>
-            <form class="space-y-4 flex-grow">
-                <div>
-                    <label for="name" class="block text-sm mb-1">Name</label>
-                    <input id="name" type="text" class="w-full px-3 py-2 rounded bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-purple-500">
-                </div>
-                <div>
-                    <label for="emailContact" class="block text-sm mb-1">Email</label>
-                    <input id="emailContact" type="email" class="w-full px-3 py-2 rounded bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-purple-500">
-                </div>
-                <div>
-                    <label for="message" class="block text-sm mb-1">Message</label>
-                    <textarea id="message" rows="4" class="w-full px-3 py-2 rounded bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white py-2 rounded transition">
-                    Send Message
-                </button>
-                <iframe src="https://lottie.host/embed/81b0694c-4546-4e7b-953d-bfe2e6856aab/WeNVzOJUqQ.lottie" title="Animated contact illustration" class="w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-lg shadow-lg"></iframe>
-            </form>
+    <div class="p-6 flex flex-col h-full">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">Contact Us</h2>
+            <button onclick="toggleContact()" class="text-gray-600 hover:text-gray-800">&times;</button>
         </div>
+        <form class="space-y-4 flex-grow">
+            <div>
+                <label for="name" class="block text-sm mb-1">Name</label>
+                <input id="name" type="text" class="w-full px-3 py-2 rounded bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-purple-500">
+            </div>
+            <div>
+                <label for="emailContact" class="block text-sm mb-1">Email</label>
+                <input id="emailContact" type="email" class="w-full px-3 py-2 rounded bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-purple-500">
+            </div>
+            <div>
+                <label for="message" class="block text-sm mb-1">Message</label>
+                <textarea id="message" rows="4" class="w-full px-3 py-2 rounded bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white py-2 rounded transition">
+                Send Message
+            </button>
+            <div class="relative pt-[100%] mt-4">
+                <iframe src="https://lottie.host/embed/81b0694c-4546-4e7b-953d-bfe2e6856aab/WeNVzOJUqQ.lottie" title="Animated contact illustration" class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"></iframe>
+            </div>
+        </form>
     </div>
+</div>
 
     <!-- Customer Experiences Section -->
     <section class="py-14 bg-gray-100">
@@ -1073,111 +1176,16 @@
 
     <!-- Consolidated JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script>
-       
-
-        // Video Carousel Logic
-        const videos = document.querySelectorAll('.video-carousel video');
-        let currentVideo = 0;
-
-        function showNextVideo() {
-            if (videos[currentVideo]) {
-                videos[currentVideo].classList.remove('active');
-                videos[currentVideo].pause();
-            }
-
-            currentVideo = (currentVideo + 1) % videos.length;
-            while (videos[currentVideo] && !videos[currentVideo].src) {
-                currentVideo = (currentVideo + 1) % videos.length;
-            }
-
-            if (videos[currentVideo]) {
-                videos[currentVideo].classList.add('active');
-                videos[currentVideo].play().catch(error => {
-                    console.error('Error playing video:', error);
-                });
-            }
-        }
-
-        if (videos.length > 0) {
-            while (videos[currentVideo] && !videos[currentVideo].src) {
-                currentVideo = (currentVideo + 1) % videos.length;
-            }
-            if (videos[currentVideo]) {
-                videos[currentVideo].classList.add('active');
-                videos[currentVideo].play().catch(error => {
-                    console.error('Error playing video:', error);
-                });
-            }
-        }
-
-        setInterval(showNextVideo, 5000);
-
-        // Carousel Logic for Featured Crafts and Raw Materials
-        function initCarousel(carouselId) {
-            const carousel = document.getElementById(carouselId);
-            if (!carousel) {
-                console.error(`Carousel with ID ${carouselId} not found`);
-                return;
-            }
-
-            let scrollPosition = 0;
-            const scrollAmount = 324; // Matches min-w-[300px] + 16px margin
-            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-
-            function autoScroll() {
-                if (maxScroll <= 0) return; // No scrolling if content fits
-                scrollPosition += scrollAmount;
-                if (scrollPosition >= maxScroll) {
-                    scrollPosition = 0;
-                    carousel.scrollTo({ left: 0, behavior: 'auto' });
-                } else {
-                    carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
-                }
-            }
-
-            let interval = setInterval(autoScroll, 3000);
-            carousel.addEventListener('mouseenter', () => clearInterval(interval));
-            carousel.addEventListener('mouseleave', () => {
-                interval = setInterval(autoScroll, 3000);
-            });
-        }
-
-        // Manual scroll function for navigation arrows
-        function scrollCarousel(carouselId, amount) {
-            const carousel = document.getElementById(carouselId);
-            if (!carousel) return;
-            const newPosition = carousel.scrollLeft + amount;
-            carousel.scrollTo({ left: newPosition, behavior: 'smooth' });
-        }
-
-        // Initialize all carousels
-        document.addEventListener('DOMContentLoaded', () => {
-            ['featuredCrafts', 'ceramicsMaterials', 'knittedMaterials', 'woodenMaterials', 'jewelryMaterials'].forEach(id => {
-                initCarousel(id);
-            });
+<script>
+    // Hamburger Menu Toggle
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const navMenu = document.getElementById('navMenu');
+        mobileMenuButton.addEventListener('click', function () {
+            navMenu.classList.toggle('show');
         });
+    });
 
-        // Swiper for Customer Experiences
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            loop: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            breakpoints: {
-                640: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
-            }
-        });
-    </script>
-   <script>
     // Contact Panel Toggle
     function toggleContact() {
         const contactPanel = document.getElementById('contactPanel');
@@ -1188,12 +1196,10 @@
     document.addEventListener('DOMContentLoaded', function () {
         const shopDropdownButton = document.getElementById('shopDropdownButton');
         const shopDropdown = document.getElementById('shopDropdown');
-
-        shopDropdownButton.addEventListener('click', function () {
+        shopDropdownButton.addEventListener('click', function (event) {
             shopDropdown.classList.toggle('show');
+            event.stopPropagation();
         });
-
-        // Close dropdown when clicking outside
         document.addEventListener('click', function (event) {
             if (!shopDropdownButton.contains(event.target) && !shopDropdown.contains(event.target)) {
                 shopDropdown.classList.remove('show');
@@ -1216,7 +1222,7 @@
             videos.forEach((video, i) => {
                 video.classList.toggle('active', i === index);
                 if (i === index) {
-                    video.play();
+                    video.play().catch(error => console.error('Error playing video:', error));
                 } else {
                     video.pause();
                     video.currentTime = 0;
@@ -1229,8 +1235,55 @@
             showVideo(currentVideo);
         }
 
-        showVideo(currentVideo);
-        setInterval(nextVideo, 5000);
+        if (videos.length > 0) {
+            showVideo(currentVideo);
+            setInterval(nextVideo, 5000);
+        }
+    });
+
+    // Initialize Carousels
+    document.addEventListener('DOMContentLoaded', function () {
+        ['featuredCrafts', 'ceramicsMaterials', 'knittedMaterials', 'woodenMaterials', 'jewelryMaterials'].forEach(id => {
+            const carousel = document.getElementById(id);
+            if (!carousel) return;
+            let scrollPosition = 0;
+            const scrollAmount = window.innerWidth < 640 ? carousel.clientWidth : 324;
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+            function autoScroll() {
+                if (maxScroll <= 0) return;
+                scrollPosition += scrollAmount;
+                if (scrollPosition >= maxScroll) {
+                    scrollPosition = 0;
+                    carousel.scrollTo({ left: 0, behavior: 'auto' });
+                } else {
+                    carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+                }
+            }
+
+            let interval = setInterval(autoScroll, 3000);
+            carousel.addEventListener('mouseenter', () => clearInterval(interval));
+            carousel.addEventListener('mouseleave', () => interval = setInterval(autoScroll, 3000));
+        });
+    });
+
+    // Swiper for Customer Experiences
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+        }
     });
 </script>
 </body>
