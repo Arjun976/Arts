@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crafty Creations - Handmade Crafts</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         /* Custom style for glassy effect */
         .glassy-nav {
@@ -88,7 +90,7 @@
             <ul class="flex space-x-6">
                 <li><a href="#" class="text-black hover:text-purple-300">Home</a></li>
                 <li><a href="#products" class="text-black hover:text-purple-300">Shop</a></li>
-                <li><a href="#" class="text-black hover:text-purple-300">About</a></li>
+                <li><a href="#about" class="text-black hover:text-purple-300">About</a></li>
                 <li>
                     <button onclick="toggleContact()" class="text-black hover:text-purple-300">Contact Us</button>
                 </li>
@@ -954,19 +956,133 @@
                 <iframe src="https://lottie.host/embed/81b0694c-4546-4e7b-953d-bfe2e6856aab/WeNVzOJUqQ.lottie" class="w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-lg shadow-lg"></iframe>
             </form>
         </div>
-    </div>
+    <!-- Customer Experiences Section -->
+    <section class="py-14 bg-black-100">
+        <h2 class="text-3xl font-bold text-center text-black mb-10">
+            Customer Experiences
+        </h2>
+        <div class="swiper mySwiper max-w-7xl mx-auto px-4">
+            <div class="swiper-wrapper">
+                <!-- Card Template -->
+                <div class="swiper-slide flex justify-center">
+                    <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="text-xl mb-2">★★★★★</div>
+                        <h3 class="font-bold text-lg mb-2">Lovely experienced</h3>
+                        <p class="text-gray-600 mb-4">
+                            Every good initiative by the entire team it is very engaging and fun filled. Thank you very much ...
+                        </p>
+                        <p class="font-bold">Vaishal Hathi</p>
+                        <p class="text-gray-500">India</p>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="text-xl mb-2">★★★★★</div>
+                        <h3 class="font-bold text-lg mb-2">Colour Me Fairy Land Pre-Cut Shapes</h3>
+                        <p class="text-gray-600 mb-4">
+                            Beautiful product for kids to increase their creativity
+                        </p>
+                        <p class="font-bold">Sumitra</p>
+                        <p class="text-gray-500">India</p>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="text-xl mb-2">★★★★★</div>
+                        <h3 class="font-bold text-lg mb-2">Excellent collection of colors</h3>
+                        <p class="text-gray-600 mb-4">
+                            Love the variety of colors and collection of products. One stop shop for sure. Fast shipping and safe packing.
+                        </p>
+                        <p class="font-bold">Mohit Mahajan</p>
+                        <p class="text-gray-500">India</p>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="text-xl mb-2">★★★★★</div>
+                        <h3 class="font-bold text-lg mb-2">Creative & Fun</h3>
+                        <p class="text-gray-600 mb-4">
+                            Kids loved it! It really sparks imagination.
+                        </p>
+                        <p class="font-bold">Ananya</p>
+                        <p class="text-gray-500">India</p>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="text-xl mb-2">★★★★★</div>
+                        <h3 class="font-bold text-lg mb-2">High Quality</h3>
+                        <p class="text-gray-600 mb-4">
+                            Very durable and well-made products. Highly recommended.
+                        </p>
+                        <p class="font-bold">Rajesh</p>
+                        <p class="text-gray-500">India</p>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="bg-white shadow-lg p-6 max-w-md rounded-md text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="text-xl mb-2">★★★★★</div>
+                        <h3 class="font-bold text-lg mb-2">Best Service</h3>
+                        <p class="text-gray-600 mb-4">
+                            Super fast delivery and very friendly team.
+                        </p>
+                        <p class="font-bold">Priya</p>
+                        <p class="text-gray-500">India</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination mt-6"></div>
+        </div>
+    </section>
 
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 Crafty Creations. All rights reserved.</p>
-            <div class="mt-4">
-                <a href="#" class="text-gray-400 hover:text-white mx-2">Privacy Policy</a>
-                <a href="#" class="text-gray-400 hover:text-white mx-2">Terms of Service</a>
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">About Crafty Creations</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://thumbs.dreamstime.com/b/leather-craft-tools-old-wood-table-workshop-shed-craftsman-workspace-grounge-dark-texture-background-192788942.jpg?w=768" alt="Crafty Creations Workshop" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+                <div class="md:w-1/2">
+                    <p class="text-gray-600 mb-4">
+                        At Crafty Creations, we believe in the beauty of handmade artistry. Founded with a passion for creativity, our small team of skilled artisans pours love and care into every piece we create. From ceramics to knitted items, wooden crafts to jewelry, each product tells a story of dedication and craftsmanship.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Our mission is to bring unique, high-quality handmade goods to your home, celebrating the imperfections that make each piece one-of-a-kind. We source sustainable materials and work with local artisans to ensure every creation reflects our commitment to quality and community.
+                    </p>
+                    <a href="#contactPanel" onclick="toggleContact()" class="inline-block bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700">Get in Touch</a>
+                </div>
             </div>
         </div>
-    </footer>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8">
+  <div class="container mx-auto text-center">
+    <!-- Navigation Links -->
+    <div class="flex justify-center flex-wrap gap-6 mb-4 text-sm">
+      <a href="#" class="hover:text-white transition">About</a>
+      <a href="#" class="hover:text-white transition">Blog</a>
+      <a href="#" class="hover:text-white transition">Jobs</a>
+      <a href="#" class="hover:text-white transition">Press</a>
+      <a href="#" class="hover:text-white transition">Accessibility</a>
+      <a href="#" class="hover:text-white transition">Partners</a>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="flex justify-center space-x-6 mb-4 text-xl">
+      <a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="hover:text-white transition"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" class="hover:text-white transition"><i class="fab fa-github"></i></a>
+      <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <!-- Copyright -->
+    <p class="text-sm">© 2024 Your Company, Inc. All rights reserved.</p>
+  </div>
+</footer>
 
     <!-- JavaScript for Video Carousel and Contact Panel -->
 <script>
@@ -1088,6 +1204,27 @@
 
         // Change video every 5 seconds
         setInterval(showNextVideo, 5000);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
     </script>
 </body>
 </html>
