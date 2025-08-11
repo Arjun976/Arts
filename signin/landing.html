@@ -8,6 +8,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
+
+         .dropdown-menu {
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .dropdown-menu.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Custom style for glassy effect */
         .glassy-nav {
             background: rgba(255, 255, 255, 0.1);
@@ -130,7 +143,24 @@
     <!-- Sticky Navbar -->
     <header class="sticky top-0 glassy-nav shadow z-10">
         <nav class="container mx-auto px-4 py-4 flex justify-center items-center">
-            <ul class="flex space-x-6">
+            <ul class="flex space-x-14 text-lg font-semibold">
+                 <li><a href="#" class="text-black hover:text-purple-300">Featured Craft</a></li>
+                  <li><a href="#" class="text-black hover:text-purple-300">Ceramics</a></li>
+                   <li><a href="#" class="text-black hover:text-purple-300">Knitted Item</a></li>
+                    <li><a href="#" class="text-black hover:text-purple-300">Wood Crafts</a></li>
+                     <li><a href="#" class="text-black hover:text-purple-300">Jwelery</a></li>
+             <li class="relative">
+                    <button id="shopDropdownButton" class="text-black hover:text-purple-300 focus:outline-none flex items-center">
+                        Materials
+                        <i class="fas fa-chevron-down ml-2"></i>
+                    </button>
+                    <ul id="shopDropdown" class="dropdown-menu absolute mt-2 w-48 bg-white glassy-nav rounded-lg shadow-lg z-20">
+                        <li><a href="#ceramics" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Ceramics</a></li>
+                        <li><a href="#knitted" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Knitted Items</a></li>
+                        <li><a href="#wooden" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Wooden Crafts</a></li>
+                        <li><a href="#jewelry" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Jewelry</a></li>
+                    </ul>
+                </li>
                 <li><a href="#" class="text-black hover:text-purple-300">Home</a></li>
                 <li><a href="#products" class="text-black hover:text-purple-300">Shop</a></li>
                 <li><a href="#about" class="text-black hover:text-purple-300">About</a></li>
@@ -1185,6 +1215,31 @@
                 1024: { slidesPerView: 3 }
             }
         });
+    </script>
+    <!-- Dropdown Menu for Shop -->
+    <script>
+        // Toggle dropdown menu
+        function toggleShopDropdown() {
+            const dropdown = document.getElementById('shopDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('shopDropdown');
+            const button = document.getElementById('shopDropdownButton');
+            if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // Add click event to Shop button
+        document.getElementById('shopDropdownButton').addEventListener('click', toggleShopDropdown);
+
+        // Placeholder for toggleContact function (unchanged from original)
+        function toggleContact() {
+            // Existing contact toggle logic
+        }
     </script>
 </body>
 </html>
