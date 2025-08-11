@@ -144,21 +144,21 @@
     <header class="sticky top-0 glassy-nav shadow z-10">
         <nav class="container mx-auto px-4 py-4 flex justify-center items-center">
             <ul class="flex space-x-14 text-lg font-semibold">
-                 <li><a href="#" class="text-black hover:text-purple-300">Featured Craft</a></li>
-                  <li><a href="#" class="text-black hover:text-purple-300">Ceramics</a></li>
-                   <li><a href="#" class="text-black hover:text-purple-300">Knitted Item</a></li>
-                    <li><a href="#" class="text-black hover:text-purple-300">Wood Crafts</a></li>
-                     <li><a href="#" class="text-black hover:text-purple-300">Jwelery</a></li>
+                 <li><a href="#featured" class="text-black hover:text-purple-300">Featured Craft</a></li>
+                  <li><a href="#ceramics" class="text-black hover:text-purple-300">Ceramics</a></li>
+                   <li><a href="#knitted" class="text-black hover:text-purple-300">Knitted Item</a></li>
+                    <li><a href="#wooden" class="text-black hover:text-purple-300">Wood Crafts</a></li>
+                     <li><a href="#jwelery" class="text-black hover:text-purple-300">Jwelery</a></li>
              <li class="relative">
                     <button id="shopDropdownButton" class="text-black hover:text-purple-300 focus:outline-none flex items-center">
                         Materials
                         <i class="fas fa-chevron-down ml-2"></i>
                     </button>
                     <ul id="shopDropdown" class="dropdown-menu absolute mt-2 w-48 bg-white glassy-nav rounded-lg shadow-lg z-20">
-                        <li><a href="#ceramics" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Ceramics</a></li>
-                        <li><a href="#knitted" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Knitted Items</a></li>
-                        <li><a href="#wooden" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Wooden Crafts</a></li>
-                        <li><a href="#jewelry" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Jewelry</a></li>
+                        <li><a href="#ceramics1" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Ceramics</a></li>
+                        <li><a href="#knitted1" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Knitted Items</a></li>
+                        <li><a href="#wooden1" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Wooden Crafts</a></li>
+                        <li><a href="#jwelery1" class="block px-4 py-2 text-black hover:bg-purple-100 hover:text-purple-700">Materials For Jewelry</a></li>
                     </ul>
                 </li>
                 <li><a href="#" class="text-black hover:text-purple-300">Home</a></li>
@@ -174,8 +174,7 @@
     <!-- Featured Crafts Section -->
     <section class="bg-yellow-50 py-8">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold text-yellow-800 mb-4">Featured Crafts</h2>
-            <a href="#products" class="inline-block px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 mb-6">View All</a>
+            <h2 id="featured" class="text-3xl font-bold text-yellow-800 mb-4">Featured Crafts</h2><br>
             <div class="carousel-container">
                 <div class="carousel" id="featuredCrafts">
                     <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
@@ -294,6 +293,7 @@
                 <button class="carousel-nav prev" onclick="scrollCarousel('featuredCrafts', -324)">&#10094;</button>
                 <button class="carousel-nav next" onclick="scrollCarousel('featuredCrafts', 324)">&#10095;</button>
             </div>
+           <br> <a href="#products" class="inline-block px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 mb-6">View All</a>
         </div>
     </section>
 
@@ -301,7 +301,7 @@
     <section id="products" class="py-16">
         <div class="container mx-auto px-4">
             <!-- Ceramics Section -->
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Ceramics</h2>
+            <h2 id="ceramics" class="text-3xl font-bold text-center text-gray-800 mb-12">Ceramics</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     <img src="https://crafty-clayworks.com/cdn/shop/articles/text-to-image_7eeb956c-a75b-4ccd-97c8-c09b8f595922.png?v=1710048179" alt="Ceramic Vase" class="w-full h-48 object-cover">
@@ -338,7 +338,7 @@
             </div>
 
             <!-- Raw Materials for Ceramics Carousel -->
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Raw Materials for Ceramics</h2>
+            <h2 id="ceramics1" class="text-3xl font-bold text-center text-gray-800 mb-12">Raw Materials for Ceramics</h2>
             <div class="carousel-container">
                 <div class="carousel" id="ceramicsMaterials">
                     <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
@@ -459,7 +459,8 @@
             </div>
 
             <!-- Knitted Items Section -->
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Knitted Items</h2>
+             <br>
+            <h2 id="knitted" class="text-3xl font-bold text-center text-gray-800 mb-12">Knitted Items</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     <img src="https://thumbs.dreamstime.com/z/colorful-woolen-knitted-hats-gloves-cusco-peru-handcraft-souvenirs-peru-colorful-woolen-knitted-hats-gloves-269963600.jpg" alt="Knitted Scarf" class="w-full h-48 object-cover">
@@ -496,7 +497,7 @@
             </div>
 
             <!-- Raw Materials for Knitted Items Carousel -->
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Raw Materials for Knitted Items</h2>
+            <h2 id="knitted1" class="text-3xl font-bold text-center text-gray-800 mb-12">Raw Materials for Knitted Items</h2>
             <div class="carousel-container">
                 <div class="carousel" id="knittedMaterials">
                     <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
@@ -617,7 +618,9 @@
             </div>
 
             <!-- Wooden Crafts Section -->
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Wooden Crafts</h2>
+
+            <br>
+            <h2 id="wooden" class="text-3xl font-bold text-center text-gray-800 mb-12">Wooden Crafts</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     <img src="https://img.freepik.com/premium-photo/wooden-crafted-fox_875825-54082.jpg" alt="Wooden Coasters" class="w-full h-48 object-cover">
@@ -654,7 +657,7 @@
             </div>
 
             <!-- Raw Materials for Wooden Crafts Carousel -->
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Raw Materials for Wooden Crafts</h2>
+            <h2 id="wooden1" class="text-3xl font-bold text-center text-gray-800 mb-12">Raw Materials for Wooden Crafts</h2>
             <div class="carousel-container">
                 <div class="carousel" id="woodenMaterials">
                     <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
@@ -773,9 +776,9 @@
                 <button class="carousel-nav prev" onclick="scrollCarousel('woodenMaterials', -324)">&#10094;</button>
                 <button class="carousel-nav next" onclick="scrollCarousel('woodenMaterials', 324)">&#10095;</button>
             </div>
-
+<br>
             <!-- Jewelry Section -->
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Jewelry</h2>
+            <h2 id="jwelery" class="text-3xl font-bold text-center text-gray-800 mb-12">Jewelry</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     <img src="https://tse1.mm.bing.net/th/id/OIP.WW-thVVPN2kLdSmUgZ9zfQHaHa?cb=thfc1&w=2560&h=2560&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Beaded Necklace" class="w-full h-48 object-cover">
@@ -810,47 +813,9 @@
                     </div>
                 </div>
             </div>
-
-
-            <!-- Jewelry Section -->
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Jewelry</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://tse1.mm.bing.net/th/id/OIP.WW-thVVPN2kLdSmUgZ9zfQHaHa?cb=thfc1&w=2560&h=2560&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Beaded Necklace" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800">Beaded Necklace</h3>
-                        <p class="text-gray-600 mt-2">$24.99</p>
-                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://shop.southindiajewels.com/wp-content/uploads/2022/07/Matte-Temple-Necklace-Set-scaled.jpg" alt="Silver Earrings" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800">Handmade Silver Earrings</h3>
-                        <p class="text-gray-600 mt-2">$19.99</p>
-                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://thumbs.dreamstime.com/z/handicrafts-india-6580931.jpg" alt="Bracelet" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800">Woven Bracelet</h3>
-                        <p class="text-gray-600 mt-2">$14.99</p>
-                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://im.whatshot.in/img/2018/Mar/shutterstock-265470635-1-1520241619.jpg?wm=1&w=1200&h=630&cc=1" alt="Gemstone Ring" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800">Gemstone Ring</h3>
-                        <p class="text-gray-600 mt-2">$29.99</p>
-                        <a href="#" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
+<br>
             <!-- Raw Materials for Jewelry Carousel -->
-<h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Raw Materials for Jewelry</h2>
+<h2 id="jwelery1" class="text-3xl font-bold text-center text-gray-800 mb-12">Raw Materials for Jewelry</h2>
 <div class="carousel-container">
     <div class="carousel" id="jewelryMaterials">
         <div class="carousel-item group bg-white rounded-lg shadow-md overflow-hidden min-w-[300px]">
@@ -1109,11 +1074,7 @@
     <!-- Consolidated JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
-        // Contact Panel Toggle
-        function toggleContact() {
-            const panel = document.getElementById('contactPanel');
-            panel.classList.toggle('translate-x-full');
-        }
+       
 
         // Video Carousel Logic
         const videos = document.querySelectorAll('.video-carousel video');
@@ -1216,30 +1177,61 @@
             }
         });
     </script>
-    <!-- Dropdown Menu for Shop -->
-    <script>
-        // Toggle dropdown menu
-        function toggleShopDropdown() {
-            const dropdown = document.getElementById('shopDropdown');
-            dropdown.classList.toggle('show');
-        }
+   <script>
+    // Contact Panel Toggle
+    function toggleContact() {
+        const contactPanel = document.getElementById('contactPanel');
+        contactPanel.classList.toggle('translate-x-full');
+    }
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const dropdown = document.getElementById('shopDropdown');
-            const button = document.getElementById('shopDropdownButton');
-            if (!button.contains(event.target) && !dropdown.contains(event.target)) {
-                dropdown.classList.remove('show');
-            }
+    // Dropdown Menu Toggle
+    document.addEventListener('DOMContentLoaded', function () {
+        const shopDropdownButton = document.getElementById('shopDropdownButton');
+        const shopDropdown = document.getElementById('shopDropdown');
+
+        shopDropdownButton.addEventListener('click', function () {
+            shopDropdown.classList.toggle('show');
         });
 
-        // Add click event to Shop button
-        document.getElementById('shopDropdownButton').addEventListener('click', toggleShopDropdown);
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function (event) {
+            if (!shopDropdownButton.contains(event.target) && !shopDropdown.contains(event.target)) {
+                shopDropdown.classList.remove('show');
+            }
+        });
+    });
 
-        // Placeholder for toggleContact function (unchanged from original)
-        function toggleContact() {
-            // Existing contact toggle logic
+    // Carousel Scroll Function
+    function scrollCarousel(carouselId, scrollAmount) {
+        const carousel = document.getElementById(carouselId);
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+
+    // Video Carousel Logic
+    document.addEventListener('DOMContentLoaded', function () {
+        const videos = document.querySelectorAll('.video-carousel video');
+        let currentVideo = 0;
+
+        function showVideo(index) {
+            videos.forEach((video, i) => {
+                video.classList.toggle('active', i === index);
+                if (i === index) {
+                    video.play();
+                } else {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            });
         }
-    </script>
+
+        function nextVideo() {
+            currentVideo = (currentVideo + 1) % videos.length;
+            showVideo(currentVideo);
+        }
+
+        showVideo(currentVideo);
+        setInterval(nextVideo, 5000);
+    });
+</script>
 </body>
 </html>
